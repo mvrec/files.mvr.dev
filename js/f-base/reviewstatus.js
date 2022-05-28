@@ -139,7 +139,7 @@ function FetchReviewData() {
                          <div>Album Title : ${data[taskID].albumTitle}</div>
                          <div>Track Title : ${data[taskID].trackTitle}</div>
                          <div>Artist Name : ${data[taskID].artistName}</div>
-                         <div>Review Status : <b><span class="tStatus">${data[taskID].trackStatus}</span></b></div>
+                         <div>Distribution Status : <b><span class="tStatus">${data[taskID].distributeStatus}</span></b></div>
                          </div>
                      </div>
                  </div>
@@ -156,13 +156,13 @@ function FetchReviewData() {
 
       $(".tStatus").each(function () {
         var el = $(this);
-        if (el.text() === "Approved") {
+        if (el.text() === "Deployed") {
           el.css({ color: "#36b9cc" });
         }
         if (el.text() === "Hold") {
           el.css({ color: "red" });
         }
-        if (el.text() === "Pending") {
+        if (el.text() === "Live") {
           el.css({ color: "#f6c23e" });
         }
         if (el.text() === "Rejected") {
