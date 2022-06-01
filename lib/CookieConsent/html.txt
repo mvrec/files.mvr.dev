@@ -1,0 +1,4 @@
+<div class='section' id='addons-widgets-1'><div class='widget HTML' data-version='2' id='HTML21'>
+<div class='ckW v' id='ckWrap'><div class='ckA'><div class='ckH'>Have a Cookie</div><div class='ckD'>We serve cookies on this site to analyze traffic, remember your preferences, and optimize your experience.</div></div><div class='ckF'><button class='ckB' id='ckAccept'>Accept Cookies!</button><a class='ckB' href='https://www.cookies-policy.html' target='_blank' title='Cookie Policy'>More Details</a></div></div>
+</div>
+</div>
