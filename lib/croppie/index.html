@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crop image with croppie and modal</title>
+  <link rel='stylesheet' href='./modal.css'>
+  <link rel='stylesheet' href='./croppie.css'>
+  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class='container-image'>
+    <img id='confirm-img' src='./profile-upload-avatar.png'>
+  </div>
+  <div class='container-form'>
+    <input id='selectedFile' class="disp-none" type='file' accept=".png, .jpg, .jpeg, .svg">
+    <button id="upload-aphoto" class="btn-primary btn">Select image</button>
+  </div>
+  <input type="hidden" value="" name="fileContent" id="fileContent">
+
+  <div class="modal fade" id="imageModalContainer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content modal-content1 modal-content1">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModal">Crop Image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-body1">
+          <div id='crop-image-container'>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary save-modal" style="width: 100%;"><svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" style="vertical-align: bottom;" width="24" height="24" viewBox="0 0 24 24"><path d="M24 18h-4v-14h-14v-4h-2v4h-4v2h4v14h14v4h2v-4h4v-2zm-18 0v-12h12v12h-12zm2-8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5zm5.292.5l-1.812 3.833-1.48-1.272-2 3.439h8.292l-3-6z"/></svg> CROP & SAVE</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='./BModal.min.js'></script>
+  <script src='./croppie.min.js'></script>
+  <script src="./custom-crop-settings.js"></script>
+
+</body>
+
+</html>
