@@ -115,7 +115,7 @@ var Turl = $('#getlink').val();
     // Custom Settings
     $('.trackpage-bg').css('background-image', 'url(' + tracklist[i].artwork + ')');
     $('.coverart').attr('src', tracklist[i].artwork);
-    $('.track_title').html(tracklist[i].song);
+    $('.aBm-tLe').html(tracklist[i].song);
     $('.track_artist').html(tracklist[i].artist);
     $(".track_artist_link").attr("href", tracklist[i].artistlink);
     $('.release_date').html(tracklist[i].releasedate);
