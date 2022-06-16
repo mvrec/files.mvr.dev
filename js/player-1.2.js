@@ -113,7 +113,7 @@ var Turl = $('#getlink').val();
     $('.up-next').removeClass('active');
     $('.up-next:nth-child(' + (i + 1) + ')').addClass('active');
     // Custom Settings
-    $('.trackpage-bg').css('background-image', 'url(' + tracklist[i].artwork + ')');
+    $('.aBm-PGbg').css('background-image', 'url(' + tracklist[i].artwork + ')');
     $('.coverart').attr('src', tracklist[i].artwork);
     $('.aBm-tLe').html(tracklist[i].song);
     $('.track_artist').html(tracklist[i].artist);
