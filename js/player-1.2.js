@@ -1,8 +1,9 @@
+// Album Music Player v.1.3 - © 2022 | Designed & licenced for Mix Vibe Records | Developed : (Codix.dev) Mix Vibe Rec. Developers
 // Add Tracklist Top
-$('.TracksListTop').append("<ul class='list-group'><li class='my-1' style='display: block;'><div class='d-flex align-items-center'><div class='col-md-1 lite-title-color'>#</div><div class='col-md-6 lite-title-color' style='max-width: 75%;'>TITLE</div><div class='ml-auto' style='margin-right: 20px;'><div class='d-lg-block'><svg class='line' width='20' height='20' viewBox='0 0 25 25' xmlns='http://www.w3.org/2000/svg'><circle fill='none' stroke-width='1.1' cx='10' cy='10' r='9'></circle><rect x='9' y='4' width='1' height='7'></rect><path fill='none' stroke-width='1.1' d='M13.018,14.197 L9.445,10.625'></path></svg></div></div></div></li></ul>");
+$('.aBm-Ptop').append("<ul class='list-group'><li class='my-1' style='display: block;'><div class='d-flex align-items-center'><div class='col-md-1 lite-title-color'>#</div><div class='col-md-6 lite-title-color' style='max-width: 75%;'>TITLE</div><div class='ml-auto' style='margin-right: 20px;'><div class='d-lg-block'><svg class='line' width='20' height='20' viewBox='0 0 25 25' xmlns='http://www.w3.org/2000/svg'><circle fill='none' stroke-width='1.1' cx='10' cy='10' r='9'></circle><rect x='9' y='4' width='1' height='7'></rect><path fill='none' stroke-width='1.1' d='M13.018,14.197 L9.445,10.625'></path></svg></div></div></div></li></ul>");
 // Fetch Data From JSON
 for (var i = 0; i < tracklist.length; ++i) {
- $('.trackslist').append("<li class='list-group-item my-1 up-next' data-tracklistNumber='" + i + "'><div class='d-flex align-items-center'><div class='col-btn'><svg class='line' width='30' height='30' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><polygon fill='none' points='6.5,5 14.5,10 6.5,15'></polygon></svg></div><div class='col-md-6 tracklistmeta'><span class='songtitle'>" + tracklist[i].song + "</span> - <span class='songtitle'>" + tracklist[i].artist + "</span></div><div class='ml-auto' style='margin-right: 20px;'>" + tracklist[i].length + "</div></div></li>");
+ $('.aBm-Plist').append("<li class='list-group-item my-1 up-next' data-tracklistNumber='" + i + "'><div class='d-flex align-items-center'><div class='col-btn'><svg class='line' width='30' height='30' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><polygon fill='none' points='6.5,5 14.5,10 6.5,15'></polygon></svg></div><div class='col-md-6 tracklistmeta'><span class='songtitle'>" + tracklist[i].song + "</span> - <span class='songtitle'>" + tracklist[i].artist + "</span></div><div class='ml-auto' style='margin-right: 20px;'>" + tracklist[i].length + "</div></div></li>");
 }
 // Detect IE/Edge
 function detectIE(){var ua=window.navigator.userAgent,msie=ua.indexOf('MSIE '),trident=ua.indexOf('Trident/'),edge=ua.indexOf('Edge/');if((msie>0)||(trident>0)||(edge>0)){$('body').addClass('ie')}}
@@ -51,7 +52,6 @@ $('section.player').removeClass('player--active')
     }
   }
   // Play/Pause Audio
-var scrollMenubottom = document.querySelector('#main-menu');
 var Turl = $('#getlink').val();
   function playPause() {
     if (isPlaying()) {
@@ -61,7 +61,6 @@ var Turl = $('#getlink').val();
       launch_toastFetch();
 	  $('.coverart2').attr('src', tracklist[i].artwork);
 	  $('.coverart2').delay("slow").fadeIn();
-      scrollMenubottom.scrollTop = scrollMenubottom.scrollHeight - scrollMenubottom.clientHeight;
     }
   }
   // Change Play Button When Paused Or Played
@@ -116,12 +115,13 @@ var Turl = $('#getlink').val();
     $('.aBm-PGbg').css('background-image', 'url(' + tracklist[i].artwork + ')');
     $('.coverart').attr('src', tracklist[i].artwork);
     $('.aBm-tLe').html(tracklist[i].song);
-    $('.track_artist').html(tracklist[i].artist);
-    $(".track_artist_link").attr("href", tracklist[i].artistlink);
-    $('.release_date').html(tracklist[i].releasedate);
-    $('.track_length').html(tracklist[i].length);
+    $('.aBm-aTst').html(tracklist[i].artist);
+    $(".aBm-aTst-lnk").attr("href", tracklist[i].artistlink);
+    $('.aBm-RDte').html(tracklist[i].releasedate);
+    $('.aBm-duTin').html(tracklist[i].length);
     $('.buttonlink').attr('href', tracklist[i].buttonlink);
     $('.Tdownloadlink').attr('href', tracklist[i].Tdownloadlink);
+    $('.aBm-id').html(tracklist[i].musicID);
     $("#copy_url").attr({ "data-clipboard-text": tracklist[i].shorturl });
 	  $('.shrturl').attr('value', tracklist[i].shorturl);
     $("#TrackType").html("<i class='far fa-file-audio' style='color:teal;'></i> Type: " + tracklist[i].tracktype + "");
