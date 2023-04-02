@@ -1,11 +1,11 @@
 {
-  "artist-dash": {
+  "artistdash": {
     "version": "V.1.0"
   },
-"listener-dash": {
+"listenerdash": {
     "version": "V.1.0"
   },
-"admin-dash": {
-    "version": "V.1.1"
+"admindash": {
+    "version": "V.2.0"
   }
 }
