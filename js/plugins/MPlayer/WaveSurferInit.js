@@ -3,7 +3,7 @@
 var wavesurfer = WaveSurfer.create({
     container: '#audiowave',
     waveColor: '#d0d7db',
-    progressColor: '#9ca1a4',
+    progressColor: '#00c5cd',
     barWidth: 2,
     barGap: 1,
     cursor:false,
