@@ -2,7 +2,7 @@
 var colorMode;
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    colorMode = "#373a40";
+    colorMode = "#40434a";
 } else{
      colorMode = "#d0d7db";
 }
