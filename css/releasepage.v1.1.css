@@ -347,9 +347,9 @@ Artest Page
 	right: 0;
 	bottom: -4px;
 	font-size: 14px;
-	color: #0a183d;
+	color: var(--headC);
 	font-weight: 500;
-	background: #fff;
+	background: var(--itmbx-bg);
 	padding-right: 2px;
     width:-webkit-max-content;
     width:-moz-max-content;
