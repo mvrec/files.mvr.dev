@@ -15,6 +15,7 @@ function waveSurferControll() {
     // Custom Settings
     $('.aBm-PGbg').css('background-image', 'url(' + tracklist[i].artwork + ')');
     $('.coverart').attr('src', tracklist[i].artwork);
+    $('.add-fav-btn').attr('data-coverartimg', tracklist[i].artwork);
     $('.aBm-tLe').html(tracklist[i].song);
     $('.aBm-aTst').html(tracklist[i].artist);
     $(".aBm-aTst-lnk").attr("href", tracklist[i].artistlink);
