@@ -64,9 +64,10 @@
 	margin-left: 15px;
 	padding-top: 5px;
 }
-  .songs-options span label{cursor: pointer}
+.songs-options span label{cursor: pointer}
 .like {
     cursor: pointer;
+	color: var(--iconC);
 }
 .like svg {
     transition: transform .15s cubic-bezier(.17,.67,.29,2.71) 0s;
