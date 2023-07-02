@@ -1,8 +1,15 @@
 // WaveSurfer Initialization
+var colorMode;
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    colorMode = "#2c2e33";
+} else{
+     colorMode = "#d0d7db";
+}
 
 var wavesurfer = WaveSurfer.create({
     container: '#audiowave',
-    waveColor: '#d0d7db',
+    waveColor: colorMode,
     progressColor: '#00c5cd',
     barWidth: 2,
     barGap: 1,
