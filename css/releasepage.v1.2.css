@@ -52,6 +52,8 @@
 .songs-options {
 	text-align: right;
 	padding-top: 26px;
+	display: flex;
+    justify-content: right;
 }
 
 .songs-options a {
@@ -696,6 +698,7 @@ Artest Page
 	.wave-player-warp .songs-options {
 		text-align: center;
 		padding-top: 10px;
+		justify-content: center;
 	}
 	.tarck-thumb-warp {
 		width: 100%;
