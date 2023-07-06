@@ -848,6 +848,7 @@ Artest Page
 	.wave-player-warp .songs-options {
 		text-align: center;
 		padding-top: 10px;
+		justify-content: center;
 	}
 	.tarck-thumb-warp {
 		width: 100%;
