@@ -9,9 +9,8 @@
 
     // :: 1.0 Preloader Active Code
     browserWindow.on('load', function () {
-        $('.preloader').fadeOut('slow', function () {
-            $(this).remove();
-        });
+        $(".loader").fadeOut();
+        $("#preloder").delay(400).fadeOut("slow");
     });
 
     // :: 2.0 Nav Active Code
