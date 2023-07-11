@@ -466,7 +466,11 @@ Artest Page
     cursor:pointer;
 }
 
-.aBm-aTst .sGr-nMe:not(:last-child):after {
+.aTst-nMe {
+    cursor: pointer;
+}
+
+.aBm-aTst-box .aTst-nMe:not(:last-child):after {
 	margin-right: 5px;
 	content: "\2022";
 	margin-left: 4px;
