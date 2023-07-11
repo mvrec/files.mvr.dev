@@ -476,7 +476,7 @@ Artest Page
 	vertical-align: middle;
 }
 .song-item.active {
-    background: var(--cntbx-bg);
+    background: var(--itmAbx-bg);
 }
 
 .aBm-dTls-bx .player_controls_box {
