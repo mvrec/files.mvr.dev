@@ -13,10 +13,20 @@
         $("#preloder").delay(400).fadeOut("slow");
     });
 
-    // :: 2.0 Nav Active Code
-    if ($.fn.classyNav) {
-        $('#oneMusicNav').classyNav();
-    }
+    // :: 2.0 More Menu Active Code
+    browserWindow.on('load', function () {
+        $("[data-togglemore='dropdown']").on('click', function () {
+			var idx = $(this).data('idx');
+			var pop = $('.dropdown-menu');
+			pop.not($(this).next()).removeClass('show');
+			$(document).on("click", function (event) {
+				if (!$(event.target).closest(".dropdown").length) {
+					window.setTimeout(function () { pop.removeClass('show'); }, 100);
+				}
+			});
+			pop.eq(idx).toggleClass('show');
+		});
+    });
 
     // :: 3.0 Sliders Active Code
     if ($.fn.owlCarousel) {
