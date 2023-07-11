@@ -399,7 +399,7 @@ Artest Page
 }
 
 .aBm-dTls-bx ul span {
-	display: block;
+	display: inline;
 	overflow: hidden;
 	color: var(--bodyCalt);
 }
@@ -466,6 +466,15 @@ Artest Page
     cursor:pointer;
 }
 
+.aBm-aTst .sGr-nMe:not(:last-child):after {
+	margin-right: 5px;
+	content: "\2022";
+	margin-left: 4px;
+	font-size: 100%;
+	color: var(--primary-color);
+	font-weight: 700;
+	vertical-align: middle;
+}
 .song-item.active {
     background: var(--cntbx-bg);
 }
