@@ -410,7 +410,7 @@ Artest Page
 .aBm-dTls-bx ul span {
   display: inline;
   overflow: hidden;
-  color: var(--bodyCalt);
+  color: var(--bodyT2);
 }
 
 .aBm-dTls-bx .single_player_container {
@@ -464,7 +464,7 @@ Artest Page
 
 .aBm-dTls-bx .song-item-info-box .song-info span {
   font-size: 12px;
-  color: var(--bodyCalt);
+  color: var(--bodyT2);
 }
 
 .aBm-dTls-bx .song-item {
