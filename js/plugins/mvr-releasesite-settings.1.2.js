@@ -226,7 +226,7 @@
     })
 
      // :: 15.0 Set Background Image
-     $('.bg-img').each(function() {
+     $('.bg-img', '.set-bg').each(function() {
 		var bg = $(this).data('bgimg');
 		$(this).css('background-image', 'url(' + bg + ')');
 	});
