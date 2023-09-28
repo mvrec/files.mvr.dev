@@ -62,14 +62,14 @@ function wavesurferInit(wavesurfer) {
 
     wavesurfer.on('play', function () {
         $(document).ready(function () {
-            $('.player-box').addClass('playing');
+            $('#wavePlayer').addClass('playing');
             $('.jplayer').jPlayer("pauseOthers");
         });
     });
 
     wavesurfer.on('pause', function () {
         $(document).ready(function () {
-            $('.player-box').removeClass('playing');
+            $('#wavePlayer').removeClass('playing');
         });
     });
 }
