@@ -282,7 +282,7 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 @container template-sizer (width > 1024px) {
