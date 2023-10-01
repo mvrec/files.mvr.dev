@@ -63,7 +63,7 @@ function wavesurferInit(wavesurfer) {
     wavesurfer.on('play', function () {
         $(document).ready(function () {
             $('#wavePlayer').addClass('playing');
-            $('.jplayer').jPlayer("pauseOthers");
+           // $('.jplayer').jPlayer("pauseOthers");
         });
     });
 
