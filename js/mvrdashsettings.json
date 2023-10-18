@@ -1,0 +1,7 @@
+{
+"alert": {
+    "type":"secondary",
+    "title": "Mix Vibe Records Accounts Team:",
+    "message": "We have not reached the minimum payment threshold of $100.00. Your earnings from this period will be carried forward in to the next"
+  }
+}
