@@ -523,6 +523,12 @@ Artest Page
 svg.css-1vp3f8h {
   fill: var(--headerL);
 }
+.css-o9o2ym:hover > svg {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  -ms-transform: translateX(8px);
+  transform: translateX(8px);
+}
 .css-o9o2ym svg {
   fill: var(--headC);
   -webkit-transition: -webkit-transform .15s ease-in-out;
