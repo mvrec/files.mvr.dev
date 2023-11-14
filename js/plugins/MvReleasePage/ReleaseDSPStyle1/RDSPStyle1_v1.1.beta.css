@@ -446,6 +446,17 @@ Artest Page
   border-radius: 10px;
 }
 
+.aBm-dTls-bTn{
+  background-color: var(--bg-dsp-pg2);
+  border-radius: 10px;
+}
+
+.aBm-dTls-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+}
+
 .aBm-dTls-bx .song-item-info-box img {
   width: 50px;
   height: 50px;
