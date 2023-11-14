@@ -499,6 +499,9 @@ Artest Page
   transition: opacity .15s ease-in-out;
   pointer-events: none;
 }
+.css-o9o2ym:hover::before {
+  opacity: 1;
+}
 .css-1wepkvg {
   z-index: 1;
   background: var(--bg-1-alt);
