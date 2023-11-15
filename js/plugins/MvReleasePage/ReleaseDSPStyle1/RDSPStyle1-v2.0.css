@@ -503,6 +503,7 @@ ul.aBm-dTls-Info {
   /* background-color: var(--itmAbx-bg); */
   border-radius: 12px;
   /* opacity: 0; */
+  border:1px solid var(--contentBo);
   -webkit-transition: opacity .15s ease-in-out;
   transition: opacity .15s ease-in-out;
   pointer-events: none;
