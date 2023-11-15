@@ -439,6 +439,7 @@ Artest Page
 }
 
 .aBm-dTls .dTls-text p {
+  font-size: 14px;
   margin: 0;
   overflow: hidden;
   background: var(--cntbx-bg);
@@ -446,9 +447,16 @@ Artest Page
   border-radius: 10px;
 }
 
-.aBm-dTls-bTn{
-  background-color: var(--bg-dsp-pg2);
+ul.aBm-dTls-Info {
+  border: 1px solid var(--contentBo);
+  padding: 15px 12px 15px 12px;
   border-radius: 10px;
+}
+
+.aBm-dTls-bTn{
+  /* background-color: var(--bg-dsp-pg2); */
+  border-radius: 10px;
+  /* border: 1px solid var(--contentBo); */
 }
 
 .aBm-dTls-sticky {
@@ -492,9 +500,9 @@ Artest Page
   left: -16px;
   width: calc(100% + 32px);
   height: calc(100% + 32px);
-  background-color: var(--itmAbx-bg);
+  /* background-color: var(--itmAbx-bg); */
   border-radius: 12px;
-  opacity: 0;
+  /* opacity: 0; */
   -webkit-transition: opacity .15s ease-in-out;
   transition: opacity .15s ease-in-out;
   pointer-events: none;
@@ -535,7 +543,8 @@ svg.css-1vp3f8h {
 }
 
 .css-o9o2ym:hover::before {
-  opacity: 1;
+  /* opacity: 1; */
+  background-color: var(--itmAbx-bg);
 }
 .css-1vp3f8h {
   width: 104px;
