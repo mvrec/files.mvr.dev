@@ -411,6 +411,7 @@ Artest Page
   display: inline;
   overflow: hidden;
   color: var(--bodyT2);
+  font-weight: 500;
 }
 
 .aBm-dTls-bx .single_player_container {
@@ -451,6 +452,7 @@ ul.aBm-dTls-Info {
   border: 1px solid var(--contentBo);
   padding: 15px 12px 15px 12px;
   border-radius: 10px;
+  font-family: var(--fontH);
 }
 
 .aBm-dTls-bTn{
@@ -566,15 +568,17 @@ svg.css-1vp3f8h {
 }
 .css-k9xbdh {
   color: var(--bodyT2);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 13px;
   line-height: 16px;
+  font-family: var(--fontH);
 }
 .css-xbxfde {
   color: var(--headerL);
   font-weight: 500;
   font-size: 15px;
   line-height: 20px;
+  font-family: var(--fontH);
 }
 .css-o9o2ym svg {
   fill: var(--headC);
