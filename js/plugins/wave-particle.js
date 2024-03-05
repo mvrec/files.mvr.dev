@@ -39,17 +39,17 @@ function setup() {
   }
 }
 
-function mousePressed() {
-  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-    attract = true;
-    document.body.style.userSelect = 'none'; // prevent text selection
-  }
-}
+// function mousePressed() {
+//   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+//     attract = true;
+//     document.body.style.userSelect = 'none'; // prevent text selection
+//   }
+// }
 
-function mouseReleased() {
-  attract = false;  
-  document.body.style.userSelect = 'auto'; // allow text selection
-}
+// function mouseReleased() {
+//   attract = false;  
+//   document.body.style.userSelect = 'auto'; // allow text selection
+// }
 
 function ease(x) {
   return x < 0.5 ? 2 * x * x : 1 - pow(-2 * x + 2, 2) / 2;
