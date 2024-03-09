@@ -446,6 +446,7 @@ Artest Page
   background: var(--cntbx-bg);
   padding: 15px;
   border-radius: 10px;
+  box-shadow:var(--bxs2):
 }
 
 ul.aBm-dTls-Info {
@@ -528,6 +529,13 @@ ul.aBm-dTls-Info {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  box-shadow: var(--bxs2);
+}
+.css-o9o2ym:hover > .css-1wepkvg svg {
+  fill: var(--linkC);
+}
+.css-o9o2ym:hover > .css-wafynb > .css-xbxfde {
+  color: var(--linkC);
 }
 svg.css-1vp3f8h {
   fill: var(--headerL);
@@ -539,6 +547,7 @@ svg.css-1vp3f8h {
 }
 
 .css-o9o2ym:hover > svg {
+  fill: var(--linkC);
   -webkit-transform: translateX(8px);
   -moz-transform: translateX(8px);
   -ms-transform: translateX(8px);
@@ -613,6 +622,7 @@ svg.css-1vp3f8h {
   border-radius: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+  box-shadow:var(--bxs1);
 }
 
 .aTst-nMe {
