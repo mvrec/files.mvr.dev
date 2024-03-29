@@ -2,8 +2,8 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1267.28 272.66">
   <defs>
     <linearGradient id="linear-gradient" x1="869.59" y1="91.48" x2="869.59" y2="63.27" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#00ccbc"/>
-      <stop offset="1" stop-color="#06a8bb"/>
+      <stop offset="0" stop-color="#1fafd7"/>
+      <stop offset="1" stop-color="#00cfdd"/>
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="82.79" y1="136.33" x2="328.64" y2="136.33" xlink:href="#linear-gradient"/>
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
@@ -33,7 +33,7 @@
       <path d="M870.28,91.08l15.36-26.61c.31-.53-.08-1.2-.69-1.2h-30.72c-.61,0-1,.66-.69,1.2l15.36,26.61c.31,.53,1.07,.53,1.38,0Z" style="fill: url(#linear-gradient);"/>
     </g>
     <g>
-      <circle cx="266.52" cy="236.82" r="15.53" style="fill: #06a8bb;"/>
+      <circle cx="266.52" cy="236.82" r="15.53" style="fill: #00cfdd;"/>
       <path d="M310.32,104.61L137.74,4.96c-24.42-14.1-54.95,3.52-54.95,31.72V235.97c0,28.2,30.53,45.82,54.95,31.72l172.59-99.64c24.42-14.1,24.42-49.35,0-63.45Z" style="fill: url(#linear-gradient-2);"/>
       <path d="M38.18,147.58c12.41,2.53,12.96,9.17,15.96,19.76,2.26,7.98,3.14,19.16,10.88,23.82,3.11,1.87,8.29,1.56,9.46,.55,4.56-3.93,4.66-10.41,5.82-15.57,4.87-21.84,9.18-43.81,13.46-65.78,1.94-9.96,5.26-18.9,16.98-18.94,11.78-.03,15.04,8.75,16.73,18.91,5.31,31.96,10.95,63.87,16.42,95.81,.01,.06,.02,.12,.03,.19,1.23,7.28,11.31,5.51,12.52-.04,.35-1.62,.82-3.26,1.14-4.84,7.48-36.94,14.54-73.98,21.81-110.97,2.09-10.64,4.14-21.67,18.27-21.67,13.34,0,15.18,11.92,17.02,22.61,5.29,30.77,11.04,61.47,16.06,92.29" style="fill: none; filter: url(#drop-shadow-1); stroke: #fff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 17.23px;"/>
       <circle cx="9.66" cy="147.98" r="9.66" style="fill: #00ccbc;"/>
