@@ -1,7 +1,7 @@
 {
 "alert": {
     "type":"warning",
-    "title": "Mix Vibe Records Finance Team:",
+    "title": "",
     "message": "We have not reached the minimum payment threshold of $100.00 from the stores and platforms. Your earnings from this period will be carried forward in to the next"
   }
 }
