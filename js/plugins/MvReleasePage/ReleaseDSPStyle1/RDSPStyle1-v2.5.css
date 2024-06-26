@@ -605,8 +605,8 @@ svg.css-1vp3f8h {
   font-weight: 500;
   font-size: 15px;
   line-height: 20px;
-  font-family: var(--fontNPM);
-  letter-spacing: .04em;
+  font-family: var(--fontNPB);
+  letter-spacing: .09em;
 }
 .css-o9o2ym svg {
   fill: var(--headC);
@@ -1236,7 +1236,17 @@ svg.css-1vp3f8h {
     font-size: 13px;
   }
   .pFm-bTns-bx{
-    padding: 18px;
+    padding: 14px;
+  }
+  .css-k9xbdh{
+    letter-spacing: .05em;
+  }
+  .css-o9o2ym::before{
+    left: -14px;
+    width: calc(100% + 28px);
+  }
+  .css-xbxfde{
+    letter-spacing: .05em;
   }
   .jp-duration {
     bottom: -31px;
