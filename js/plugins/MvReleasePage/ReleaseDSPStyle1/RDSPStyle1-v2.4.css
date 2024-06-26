@@ -460,7 +460,7 @@ Artest Page
   background: var(--cntbx-bg);
   padding: 15px;
   border-radius: 10px;
-  box-shadow:var(--bxs2):
+  box-shadow:var(--bxs2);
   font-family: var(--fontNPR);
   letter-spacing: .08em;
 }
