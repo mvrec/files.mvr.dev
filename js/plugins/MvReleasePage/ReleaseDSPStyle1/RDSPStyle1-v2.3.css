@@ -7,6 +7,8 @@
   padding-bottom: 5px;
 }
 .aBm-tPe span {
+  font-family: var(--fontNPH);
+  letter-spacing: .03em;
   color: rgb(8 16 43);
   font-weight: 600;
   font-size: 11px;
@@ -51,6 +53,8 @@
 .song-item-info-box .song-info p {
   font-size: 14px;
   margin-bottom: 0;
+  font-family: var(--fontNPR);
+  letter-spacing: .03em;
 }
 
 .songs-options {
@@ -332,12 +336,16 @@ Artest Page
 .wave-player-info h2 {
   font-size: 30px;
   font-weight: 700;
+  font-family: var(--fontNPB);
+  letter-spacing: .03em;
 }
 .itm:nth-of-type(2) {
   padding-top: 10px;
 }
-.wave-player-info .itm {
+.wave-player-info .itm .aTst-nMe {
   font-size: 14px;
+  font-family: var(--fontNPM);
+  letter-spacing: .03em;
 }
 
 .wavePlayer_controls {
@@ -390,6 +398,8 @@ Artest Page
 .aBm-dTls-bx h6 {
   margin-bottom: 10px;
   font-weight: 500;
+  font-family: var(--fontNPB);
+  letter-spacing: .03em;
 }
 
 .aBm-dTls-bx ul {
@@ -405,6 +415,8 @@ Artest Page
   margin-right: 6px;
   font-weight: 600;
   color: var(--headC);
+  font-family: var(--fontNPR);
+  letter-spacing: .09em;
 }
 
 .aBm-dTls-bx ul span {
@@ -412,6 +424,8 @@ Artest Page
   overflow: hidden;
   color: var(--bodyT2);
   font-weight: 500;
+  font-family: var(--fontNPM);
+  letter-spacing: .09em;
 }
 
 .aBm-dTls-bx .single_player_container {
@@ -447,6 +461,8 @@ Artest Page
   padding: 15px;
   border-radius: 10px;
   box-shadow:var(--bxs2):
+  font-family: var(--fontNPR);
+  letter-spacing: .08em;
 }
 
 ul.aBm-dTls-Info {
@@ -581,14 +597,16 @@ svg.css-1vp3f8h {
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
-  font-family: var(--fontH);
+  font-family: var(--fontNPM);
+  letter-spacing: .09em;
 }
 .css-xbxfde {
   color: var(--headerL);
   font-weight: 500;
   font-size: 15px;
   line-height: 20px;
-  font-family: var(--fontH);
+  font-family: var(--fontNPM);
+  letter-spacing: .09em;
 }
 .css-o9o2ym svg {
   fill: var(--headC);
@@ -610,6 +628,8 @@ svg.css-1vp3f8h {
 .aBm-dTls-bx .song-item-info-box .song-info h4 {
   font-size: 14px;
   font-weight: 600;
+  font-family: var(--fontNPB);
+  letter-spacing: .03em;
 }
 
 .aBm-dTls-bx .song-item-info-box .song-info span {
