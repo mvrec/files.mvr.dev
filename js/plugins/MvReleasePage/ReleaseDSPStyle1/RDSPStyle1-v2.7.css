@@ -1242,8 +1242,10 @@ svg.css-1vp3f8h {
     letter-spacing: .05em;
   }
   .css-o9o2ym::before{
+    top: -13px;
     left: -14px;
     width: calc(100% + 28px);
+    height: calc(100% + 26px);
   }
   .css-xbxfde{
     letter-spacing: .05em;
