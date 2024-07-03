@@ -1,0 +1,39 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "title": "Event 1",
+        "description": "This is the first event",
+        "start_date": "2024-07-15 14:00:00",
+        "end_date": "2024-07-16 16:00:00"
+      },
+      {
+        "id": 2,
+        "title": "Event 2",
+        "description": "This is the second event",
+        "start_date": "2024-07-10 10:00:00",
+        "end_date": "2024-07-11 12:00:00"
+      },
+      {
+        "id": 3,
+        "title": "Event 3",
+        "description": "This is the third event",
+        "start_date": "2023-03-20 18:00:00",
+        "end_date": "2023-03-20 20:00:00"
+      },
+      {
+        "id": 4,
+        "title": "Event 4",
+        "description": "This is the fourth event",
+        "start_date": "2023-03-22 14:00:00",
+        "end_date": "2023-03-22 16:00:00"
+      },
+      {
+        "id": 5,
+        "title": "Event 5",
+        "description": "This is the fifth event",
+        "start_date": "2023-03-25 10:00:00",
+        "end_date": "2023-03-25 12:00:00"
+      }
+    ]
+  }
