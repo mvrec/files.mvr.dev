@@ -650,15 +650,6 @@ svg.css-1vp3f8h {
   cursor: pointer;
 }
 
-.aBm-aTst-box .aTst-nMe:not(:last-child):after {
-  margin-right: 5px;
-  content: "\2022";
-  margin-left: 4px;
-  font-size: 100%;
-  color: var(--primary-color);
-  font-weight: 700;
-  vertical-align: middle;
-}
 .song-item.active {
   background: var(--itmAbx-bg);
 }
@@ -784,6 +775,21 @@ svg.css-1vp3f8h {
   /* .aBm-aTst-box .aTst-nMe:nth-child(n + 2) .dropdown .dropdown-menu {
     transform: translate3d(-125px, 0px, 0px);
   } */
+   .aBm-aTst-box{
+    display:flex;
+    flex-direction:column;
+   }
+}
+@media (min-width: 768px) {
+  .aBm-aTst-box .aTst-nMe:not(:last-child):after {
+    margin-right: 5px;
+    content: "\2022";
+    margin-left: 4px;
+    font-size: 100%;
+    color: var(--primary-color);
+    font-weight: 700;
+    vertical-align: middle;
+  }
 }
 
 .similar-songs-section {
