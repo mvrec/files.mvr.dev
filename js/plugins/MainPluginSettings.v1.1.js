@@ -17,7 +17,7 @@
     // :: 2.0 More Menu Active Code
     browserWindow.on("load", function () {
       // Get all dropdown toggles
-      const $dropdownToggles = $('[data-togglemore="dropdown"]');
+      const $dropdownToggles = $('[data-togglemore="more"]');
 
       if ($dropdownToggles.length > 0) {
         // Function to position dropdown menu
