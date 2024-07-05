@@ -1,7 +1,8 @@
-/* Copyright from © 2022 https://www.mixviberecords.com
+/* © Copyright 2024 https://www.mixviberecords.com
 * Licensed Code With No Open Source Code
-* Licensed To © Mix Vibe Records 
-* b2root.dev */
+* jQuery Codes
+* MVR Developers */
+
 (function ($) {
     'use strict';
 
@@ -14,18 +15,64 @@
     });
 
     // :: 2.0 More Menu Active Code
-    browserWindow.on('load', function () {
-        $("[data-togglemore='dropdown']").on('click', function () {
-			var idx = $(this).data('idx');
-			var pop = $('.dropdown-menu');
-			pop.not($(this).next()).removeClass('show');
-			$(document).on("click", function (event) {
-				if (!$(event.target).closest(".dropdown").length) {
-					window.setTimeout(function () { pop.removeClass('show'); }, 100);
-				}
-			});
-			pop.eq(idx).toggleClass('show');
-		});
+    browserWindow.on("load", function () {
+      // Get all dropdown toggles
+      const $dropdownToggles = $('[data-togglemore="more"]');
+
+      // Function to position dropdown menu
+      function positionDropdownMenu($dropdownMenu, $toggleElement) {
+        const toggleRect = $toggleElement[0].getBoundingClientRect();
+        const dropdownRect = $dropdownMenu[0].getBoundingClientRect();
+        const screenWidth = $(window).width();
+
+        // Calculate the left position of the dropdown menu
+        let left = toggleRect.left;
+        if (toggleRect.left + dropdownRect.width > screenWidth) {
+          left = toggleRect.right - dropdownRect.width;
+        }
+
+        // Set the top and left positions of the dropdown menu
+        $dropdownMenu.css({
+          top: toggleRect.bottom + "px",
+          left: left + "px",
+        });
+      }
+
+      // Add event listener to each dropdown toggle
+      $dropdownToggles.on("click", function (event) {
+        event.stopPropagation(); // prevent event from bubbling up to document
+
+        // Hide all other dropdown menus
+        $dropdownToggles.not($(this)).next().removeClass("show");
+
+        // Toggle the current dropdown menu
+        const $dropdownMenu = $(this).next();
+        $dropdownMenu.toggleClass("show");
+        if ($dropdownMenu.hasClass("show")) {
+          positionDropdownMenu($dropdownMenu, $(this));
+        }
+      });
+
+      // Update position on window resize
+      $(window).on("resize", function () {
+        $dropdownToggles.each(function () {
+          const $dropdownMenu = $(this).next();
+          if ($dropdownMenu.hasClass("show")) {
+            positionDropdownMenu($dropdownMenu, $(this));
+          }
+        });
+      });
+
+      // Add event listener to document to hide dropdown menu when clicking outside
+      $(document).on("click", function (event) {
+        const $target = $(event.target);
+        const isDropdownToggle = $target.data("togglemore") === "more";
+        const isDropdownMenu = $target.hasClass("dropdown-menu");
+
+        if (!isDropdownToggle && !isDropdownMenu) {
+          $dropdownToggles.next().removeClass("show");
+        }
+      });
     });
 
     // :: 3.0 Sliders Active Code
@@ -111,46 +158,11 @@
         });
     }
 
-    // :: 4.0 Masonary Gallery Active Code
-    if ($.fn.imagesLoaded) {
-        $('.oneMusic-albums').imagesLoaded(function () {
-            // filter items on button click
-            $('.catagory-menu').on('click', 'a', function () {
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({
-                    filter: filterValue
-                });
-            });
-            // init Isotope
-            var $grid = $('.oneMusic-albums').isotope({
-                itemSelector: '.single-album-item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.single-album-item'
-                }
-            });
-        });
-    }
+    // :: 4.0
 
-    // :: 5.0 Video Active Code
-    if ($.fn.magnificPopup) {
-        $('.video--play--btn').magnificPopup({
-            disableOn: 0,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: true,
-            fixedContentPos: false
-        });
-    }
+    // :: 5.0
 
-    // :: 6.0 ScrollUp Active Code
-    if ($.fn.scrollUp) {
-        browserWindow.scrollUp({
-            scrollSpeed: 1500,
-            scrollText: '<i class="fa fa-angle-up"></i>'
-        });
-    }
+    // :: 6.0
 
     // :: 7.0 CounterUp Active Code
     if ($.fn.counterUp) {
@@ -160,44 +172,9 @@
         });
     }
 
-    // :: 8.0 Sticky Active Code
-    if ($.fn.sticky) {
-        $(".oneMusic-main-menu").sticky({
-            topSpacing: 0
-        });
-    }
+    // :: 8.0
 
-    // :: 9.0 Progress Bar Active Code
-    if ($.fn.circleProgress) {
-        $('#circle').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#000000',
-            thickness: '3',
-            reverse: true
-        });
-        $('#circle2').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#000000',
-            thickness: '3',
-            reverse: true
-        });
-        $('#circle3').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#000000',
-            thickness: '3',
-            reverse: true
-        });
-        $('#circle4').circleProgress({
-            size: 160,
-            emptyFill: "rgba(0, 0, 0, .0)",
-            fill: '#000000',
-            thickness: '3',
-            reverse: true
-        });
-    }
+    // :: 9.0 
 
     // :: 10.0 audioPlayer Active Code
     if ($.fn.audioPlayer) {
