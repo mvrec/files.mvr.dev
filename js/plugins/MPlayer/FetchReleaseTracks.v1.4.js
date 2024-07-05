@@ -1,37 +1,37 @@
-/* Copyright © 2023 https://www.mixviberecords.com
+/* © Copyright 2024 https://www.mixviberecords.com
 * Licensed Code With No Open Source Code
 * jQuery Codes
-* Plugin v.1.1 - Codix.dev */
+* MVR Developers */
 
 for (var i = 0; i < tracklist.length; ++i) {
   let artistData = tracklist[i].artists
   $("#loadSongItems").append("<div class='song-item up-next' data-playtrkid='" + i + "'><div class='row'><div class='col-lg-12'><div class='song-item-info-box'><img src='" + tracklist[i].artwork + "'/><div class='song-info'><h4>" + tracklist[i].song + "</h4><p>" + artistData.map(function (data) { return `${data.name}` }).join(' - ') + "</p></div></div></div></div></div>");
 }
 
-function loadPopMenu() {
-  $("[data-togglemore='dropdown']").on('click', function () {
-    var idx = $(this).data('idx');
-    var pop = $('.dropdown-menu');
-    pop.not($(this).next()).removeClass('show');
-    $(document).on("click", function (event) {
-      if (!$(event.target).closest(".dropdown").length) {
-        window.setTimeout(function () { pop.removeClass('show'); }, 100);
-      }
-    });
-    pop.eq(idx).toggleClass('show');
-  });
-}
+// function loadPopMenu() {
+//   $("[data-togglemore='dropdown']").on('click', function () {
+//     var idx = $(this).data('idx');
+//     var pop = $('.dropdown-menu');
+//     pop.not($(this).next()).removeClass('show');
+//     $(document).on("click", function (event) {
+//       if (!$(event.target).closest(".dropdown").length) {
+//         window.setTimeout(function () { pop.removeClass('show'); }, 100);
+//       }
+//     });
+//     pop.eq(idx).toggleClass('show');
+//   });
+// }
 
 function waveSurferControll() {
   var $audio = $('#audiowave'),
     audio_down = $('#audio-down'),
     playlistLength = tracklist.length,i = 0;
   function songInfo() {
-     // Artist More Menu
+     // Artist More Menu > Functions added in MainPluginSettings.js
      let artistData = tracklist[i].artists;
      $('.aBm-aTst-box').html(artistData.map(function (data, index) {
        return `<span class="aTst-nMe"><span class="dropdown moremenu">
-             <span data-togglemore='dropdown' data-idx='${index ++}'>
+             <span data-togglemore='more' data-idx='${index ++}'>
                ${data.name}
              </span>
              <div class="dropdown-menu">
