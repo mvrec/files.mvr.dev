@@ -748,7 +748,7 @@ svg.css-1vp3f8h {
   z-index: 9;
   display: none;
   float: left;
-  min-width: 12rem;
+  min-width: 160px;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   color: var(--headC);
@@ -781,9 +781,9 @@ svg.css-1vp3f8h {
   margin-right: 6px;
 }
 @media (max-width: 768px) {
-  .aBm-aTst-box .aTst-nMe:nth-child(n + 2) .dropdown .dropdown-menu {
+  /* .aBm-aTst-box .aTst-nMe:nth-child(n + 2) .dropdown .dropdown-menu {
     transform: translate3d(-125px, 0px, 0px);
-  }
+  } */
 }
 
 .similar-songs-section {
