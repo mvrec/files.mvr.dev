@@ -234,5 +234,11 @@
 		var bg = $(this).data('bgimg');
 		$(this).css('background-image', 'url(' + bg + ')');
 	});
+    // :: 16.0 Verified Poper
+    $('.verifiedPop').on('click', function () {
+        $.fancybox.open({
+            src: '#verifiedModal', 
+        });
+    });
 
 })(jQuery);
