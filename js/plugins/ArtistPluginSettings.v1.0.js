@@ -236,9 +236,11 @@
 	});
     // :: 16.0 Verified Poper
     $('.verifiedPop').on('click', function () {
+        $('.fancybox-stage').append("<div id='confetti-wrapper'><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div></div>");
         $.fancybox.open({
             src: '#verifiedModal', 
         });
+        
     });
 
 })(jQuery);
