@@ -241,7 +241,7 @@
         });
         setTimeout(function() {
             $('.fancybox-stage').append("<div id='confetti-wrapper'><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div><div class='confetti'></div></div>");
-        }, 3000);
+        }, 1000);
     });
 
 })(jQuery);
