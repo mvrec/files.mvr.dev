@@ -53,8 +53,7 @@
 .song-item-info-box .song-info p {
   font-size: 14px;
   margin-bottom: 0;
-  font-family: var(--fontNPR);
-  letter-spacing: .03em;
+  font-family: var(--fontB);
 }
 
 .songs-options {
@@ -344,8 +343,7 @@ Artest Page
 }
 .wave-player-info .itm .aTst-nMe {
   font-size: 14px;
-  font-family: var(--fontNPM);
-  letter-spacing: .03em;
+  font-family: var(--fontB);
 }
 
 .wavePlayer_controls {
@@ -408,6 +406,7 @@ Artest Page
 
 .aBm-dTls-bx ul li {
   font-size: 14px;
+  flex-wrap: wrap;
 }
 
 .aBm-dTls-bx ul strong {
@@ -423,9 +422,9 @@ Artest Page
   display: inline;
   overflow: hidden;
   color: var(--bodyT2);
-  font-weight: 500;
-  font-family: var(--fontNPM);
-  letter-spacing: .09em;
+  font-weight: 400;
+  font-family: var(--fontB);
+  line-height: 25px;
 }
 
 .aBm-dTls-bx .single_player_container {
@@ -461,8 +460,7 @@ Artest Page
   padding: 15px;
   border-radius: 10px;
   box-shadow:var(--bxs2);
-  font-family: var(--fontNPR);
-  letter-spacing: .08em;
+  font-family: var(--fontB);
 }
 
 ul.aBm-dTls-Info {
@@ -749,6 +747,8 @@ svg.css-1vp3f8h {
   background-clip: padding-box;
   border: 1px solid var(--contentBo);
   border-radius: 0.25rem;
+  font-family: var(--fontNPM);
+  letter-spacing: .03em;
 }
 
 .moremenu .dropdown-menu a {
@@ -758,7 +758,7 @@ svg.css-1vp3f8h {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 0.25rem 0.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
