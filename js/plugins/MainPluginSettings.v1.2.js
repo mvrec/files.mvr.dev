@@ -14,67 +14,9 @@
         $("#preloder").delay(400).fadeOut("slow");
     });
 
-    // :: 2.0 More Menu Active Code
+    // :: 2.0
     browserWindow.on("load", function () {
-      // Get all dropdown toggles
-    //   const $dropdownToggles = $('[data-togglemore="more"]');
-
-    //   if ($dropdownToggles.length > 0) {
-    //     // Function to position dropdown menu
-    //     function positionDropdownMenu($dropdownMenu, $toggleElement) {
-    //       const toggleRect = $toggleElement[0].getBoundingClientRect();
-    //       const dropdownRect = $dropdownMenu[0].getBoundingClientRect();
-    //       const screenWidth = $(window).width();
-
-    //       // Calculate the left position of the dropdown menu
-    //       let left = toggleRect.left;
-    //       if (toggleRect.left + dropdownRect.width > screenWidth) {
-    //         left = toggleRect.right - dropdownRect.width;
-    //       }
-
-    //       // Set the top and left positions of the dropdown menu
-    //       $dropdownMenu.css({
-    //         top: toggleRect.bottom,
-    //         left: left,
-    //       });
-    //     }
-
-    //     // Add event listener to each dropdown toggle
-    //     $dropdownToggles.on("click", function (event) {
-    //       event.stopPropagation(); // prevent event from bubbling up to document
-
-    //       // Hide all other dropdown menus
-    //       $dropdownToggles.not(this).next().removeClass("show");
-
-    //       // Toggle the current dropdown menu
-    //       const $dropdownMenu = $(this).next();
-    //       $dropdownMenu.toggleClass("show");
-    //       if ($dropdownMenu.hasClass("show")) {
-    //         positionDropdownMenu($dropdownMenu, $(this));
-    //       }
-    //     });
-
-    //     // Update position on window resize
-    //     $(window).on("resize", function () {
-    //       $dropdownToggles.each(function () {
-    //         const $dropdownMenu = $(this).next();
-    //         if ($dropdownMenu.hasClass("show")) {
-    //           positionDropdownMenu($dropdownMenu, $(this));
-    //         }
-    //       });
-    //     });
-
-    //     // Add event listener to document to hide dropdown menu when clicking outside
-    //     $(document).on("click", function (event) {
-    //       const target = $(event.target);
-    //       const isDropdownToggle = target.data("togglemore");
-    //       const isDropdownMenu = target.hasClass("dropdown-menu");
-
-    //       if (!isDropdownToggle && !isDropdownMenu) {
-    //         $dropdownToggles.next().removeClass("show");
-    //       }
-    //     });
-    //   }
+  
     });
 
     // :: 3.0 Sliders Active Code
