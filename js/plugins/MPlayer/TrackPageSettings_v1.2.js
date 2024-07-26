@@ -5,7 +5,7 @@
 
 for (var i = 0; i < tracklist.length; ++i) {
   let artistData = tracklist[i].artists
-  $("#loadSongItems").append("<div class='song-item up-next' data-playtrkid='" + i + "'><div class='row'><div class='col-lg-12'><div class='song-item-info-box'><img src='" + tracklist[i].artwork + "'/><div class='song-info'><h4>" + tracklist[i].song + "</h4><span>" + artistData.map(function (data) { return `${data.name}` }).join(' • ') + "</span></div><span class='single-item-time'>" + tracklist[i].length + "</span></div></div></div></div>");
+  $("#loadSongItems").append("<div class='song-item up-next' data-playtrkid='" + i + "'><div class='row'><div class='col-lg-12'><div class='song-item-info-box'><div class='song-item-cover'><img src='" + tracklist[i].artwork + "'/><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z'></path></svg></div><div class='song-info'><h4>" + tracklist[i].song + "</h4><span>" + artistData.map(function (data) { return `${data.name}` }).join(' • ') + "</span></div><span class='single-item-time'>" + tracklist[i].length + "</span></div></div></div></div>");
 }
 
 // function loadPopMenu() {

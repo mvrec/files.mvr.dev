@@ -29,12 +29,35 @@
   margin-bottom: 33px;
 }
 
+.song-item-info-box .song-item-cover {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.song-item-cover svg {
+  position: absolute;
+  opacity: 0;
+  fill: #fff;
+  width: 24px;
+  height: auto;
+  margin: 1px 0 0 1px;
+  transition: 0.5s ease;
+}
+
+.song-item:hover .song-item-cover svg {
+  opacity: 1;
+}
+
 .song-item-info-box img {
   float: left;
   width: 50px;
   height: 50px;
   border-radius: 5px;
-  margin-right: 8px;
 }
 .song-item-info-box {
   line-height: 0.2;
@@ -51,7 +74,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: 6px;
+  margin-left: 15px;
   margin-right: auto;
 }
 
