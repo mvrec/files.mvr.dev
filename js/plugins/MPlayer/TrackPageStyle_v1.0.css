@@ -31,29 +31,69 @@
 
 .song-item-info-box img {
   float: left;
-  width: 85px;
-  height: 85px;
-  border-radius: 19px;
-  margin-right: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 8px;
 }
 .song-item-info-box {
   line-height: 0.2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .song-item-info-box .song-info {
+  padding-top: 6px;
   overflow: hidden;
-  padding-top: 12px !important;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 6px;
+  margin-right: auto;
 }
 
 .song-item-info-box .song-info h4 {
-  font-size: 20px;
   margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--fontNPB);
+  letter-spacing: .03em;
+  display: block;
+  width: 100%;
+  line-height: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.song-item-info-box .song-info span {
+  font-size: 12px;
+  color: var(--bodyT2);
+  margin-bottom: 0;
+  font-family: var(--fontB);
+  display: block;
+  width: 100%;
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .song-item-info-box .song-info p {
   font-size: 14px;
   margin-bottom: 0;
   font-family: var(--fontB);
+}
+
+.song-item-info-box .single-item-time {
+  margin-left: 15px;
+  font-size: 14px;
+  color: var(--bodyT2);
 }
 
 .songs-options {
@@ -613,29 +653,6 @@ svg.css-1vp3f8h {
   transition: transform .15s ease-in-out;
 }
 
-.aBm-dTls-bx .song-item-info-box img {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-  margin-right: 13px;
-}
-
-.aBm-dTls-bx .song-item-info-box .song-info {
-  padding-top: 10px;
-}
-
-.aBm-dTls-bx .song-item-info-box .song-info h4 {
-  font-size: 14px;
-  font-weight: 600;
-  font-family: var(--fontNPB);
-  letter-spacing: .03em;
-}
-
-.aBm-dTls-bx .song-item-info-box .song-info span {
-  font-size: 12px;
-  color: var(--bodyT2);
-}
-
 .aBm-dTls-bx .song-item {
   background: var(--itmbx-bg);
   padding: 10px;
@@ -893,6 +910,9 @@ svg.css-1vp3f8h {
   }
   .category-section {
     padding: 100px 0;
+  }
+  .song-item-info-box .song-info{
+    max-width: 200px;
   }
 }
 
