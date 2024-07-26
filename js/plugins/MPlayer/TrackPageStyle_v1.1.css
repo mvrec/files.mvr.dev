@@ -797,6 +797,9 @@ svg.css-1vp3f8h {
     display:flex;
     flex-direction:column;
    }
+   .song-item-info-box .song-info{
+    max-width: 200px;
+  }
 }
 @media (min-width: 768px) {
   .aBm-aTst-box .aTst-nMe:not(:last-child):after {

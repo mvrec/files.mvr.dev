@@ -5,7 +5,7 @@
 
 for (var i = 0; i < tracklist.length; ++i) {
   let artistData = tracklist[i].artists
-  $("#loadSongItems").append("<div class='song-item up-next' data-playtrkid='" + i + "'><div class='row'><div class='col-lg-12'><div class='song-item-info-box'><img src='" + tracklist[i].artwork + "'/><div class='song-info'><h4>" + tracklist[i].song + "</h4><p>" + artistData.map(function (data) { return `${data.name}` }).join(' • ') + "</p></div></div></div></div></div>");
+  $("#loadSongItems").append("<div class='song-item up-next' data-playtrkid='" + i + "'><div class='row'><div class='col-lg-12'><div class='song-item-info-box'><img src='" + tracklist[i].artwork + "'/><div class='song-info'><h4>" + tracklist[i].song + "</h4><span>" + artistData.map(function (data) { return `${data.name}` }).join(' • ') + "</span></div><span class='single-item-time'>" + tracklist[i].length + "</span></div></div></div></div>");
 }
 
 // function loadPopMenu() {
