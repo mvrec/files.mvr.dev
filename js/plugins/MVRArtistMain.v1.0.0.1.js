@@ -8,6 +8,9 @@
 
   var browserWindow = $(window);
   // :: Scripts initialization
+  $.exists = function (selector) {
+    return $(selector).length > 0;
+  };
 
   $(window).on("load", function () {
     //$(window).trigger('scroll');
@@ -38,9 +41,9 @@
     //   parallaxSwiperSlider();
     //  fullScreenSwiperSlider();
     //  ecommerce();
-    //  if ($.exists('.wow')) {
-    //    new WOW().init();
-    //  }
+     if ($.exists('.wow')) {
+       new WOW().init();
+     }
   });
 
   // :: Preloader
@@ -307,11 +310,6 @@
   $('a[href="#"]').on("click", function ($) {
     $.preventDefault();
   });
-
-  // :: 13.0 wow Active Code
-  if (browserWindow.width() > 767) {
-    new WOW().init();
-  }
 
   // :: 14.0 Gallery Menu Active Code
   $(".catagory-menu a").on("click", function () {
