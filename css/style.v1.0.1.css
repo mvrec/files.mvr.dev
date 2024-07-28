@@ -3777,7 +3777,7 @@ label {
   opacity: 0;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  background-color: var(--darkB);
+  background-color: var(--headerBg);
 }
 
 .cs-gescout_show {
