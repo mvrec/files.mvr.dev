@@ -304,35 +304,17 @@
         $(this)
           .find('.cs-hover_layer1')
           .css('transform', function () {
-            return (
-              'perspective( 800px ) translate3d( 0, 0, 0 ) rotateX(' +
-              degX1 +
-              ') rotateY(' +
-              degY1 +
-              ')'
-            );
+            return "perspective( 800px ) translate3d( 0, 0, 0 ) rotateX(" + degX1 + ") rotateY(" + degY1 + ")";
           });
         $(this)
           .find('.cs-hover_layer2')
           .css('transform', function () {
-            return (
-              'perspective( 800px ) translateY(' +
-              degX2 +
-              ') translateX(' +
-              degY2 +
-              ')'
-            );
+            return "perspective( 800px ) translateY(" + degX2 + ") translateX(" + degY2 + ")";
           });
         $(this)
           .find('.cs-hover_layer3')
           .css('transform', function () {
-            return (
-              'perspective( 800px ) translateX(' +
-              degX3 +
-              ') translateY(' +
-              degY3 +
-              ') scale(1.02)'
-            );
+            return "perspective( 800px ) translateX(" + degX3 + ") translateY(" + degY3 + ") scale(1.02)";
           });
       })
       .on('mouseout', '.cs-hobble', function () {
@@ -349,8 +331,6 @@
       time: 2000,
     });
   }
-
-  // :: 8.0
 
   // :: 9.0
 
@@ -384,4 +364,43 @@
     var bg = $(this).data("bgimg");
     $(this).css("background-image", "url(" + bg + ")");
   });
+
+  // :: Cursor Animation
+  $(function () {
+    $("body").append('<span class="cs-cursor_lg d"></span>');
+    $("body").append('<span class="cs-cursor_sm"></span>');
+    $(".cs-text_btn, .cs-site_header a, .cs-down_btn, .cs-social_btns a, .cs-menu_widget").on("mouseenter", function () {
+      $(".cs-cursor_lg").addClass("opacity-0");
+      $(".cs-cursor_sm").addClass("opacity-0");
+    });
+    $(".cs-text_btn, .cs-site_header a, .cs-down_btn, .cs-social_btns a, .cs-menu_widget").on("mouseleave", function () {
+      $(".cs-cursor_lg").removeClass("opacity-0");
+      $(".cs-cursor_sm").removeClass("opacity-0");
+    });
+  });
+  function cursorMovingAnimation(event) {
+    try {
+      const timing = gsap.timeline({
+        defaults: {
+          x: event.clientX,
+          y: event.clientY,
+        },
+      });
+
+      timing
+        .to(".cs-cursor_lg", {
+          ease: "power2.out",
+        })
+        .to(
+          ".cs-cursor_sm",
+          {
+            ease: "power2.out",
+          },
+          "-=0.4"
+        );
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  document.addEventListener('mousemove', cursorMovingAnimation);
 })(jQuery);
