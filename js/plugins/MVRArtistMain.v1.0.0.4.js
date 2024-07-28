@@ -22,7 +22,7 @@
   $(function () {
     // $(window).trigger('resize');
     // mainNav();
-    // stickyHeader();
+    stickyHeader();
     // dynamicBackground();
     slickInit();
     // isotopInit();
@@ -332,7 +332,34 @@
     });
   }
 
-  // :: 9.0
+  // :: Sticky Header
+  function stickyHeader() {
+    var $window = $(window);
+    var lastScrollTop = 0;
+    var $header = $('.cs-sticky_header');
+    var headerHeight = $header.outerHeight() + 30;
+
+    $window.scroll(function () {
+      var windowTop = $window.scrollTop();
+
+      if (windowTop >= headerHeight) {
+        $header.addClass('cs-gescout_sticky');
+      } else {
+        $header.removeClass('cs-gescout_sticky');
+        $header.removeClass('cs-gescout_show');
+      }
+
+      if ($header.hasClass('cs-gescout_sticky')) {
+        if (windowTop < lastScrollTop) {
+          $header.addClass('cs-gescout_show');
+        } else {
+          $header.removeClass('cs-gescout_show');
+        }
+      }
+
+      lastScrollTop = windowTop;
+    });
+  }
 
   // :: 10.0 audioPlayer Active Code
   if ($.fn.audioPlayer) {
