@@ -33,7 +33,7 @@
     //  counterInit();
     //  rippleInit();
     //  parallaxEffect();
-    //  hobbleEffect();
+    hobbleEffect();
     //  hoverTab();
     //  lightGalleryInit();
     //  scrollUp();
@@ -282,7 +282,65 @@
     });
   }
 
-  // :: 6.0
+  // :: Hobble Effect
+  function hobbleEffect() {
+    $(document)
+      .on('mousemove', '.cs-hobble', function (event) {
+        var halfW = this.clientWidth / 2;
+        var halfH = this.clientHeight / 2;
+        var coorX = halfW - (event.pageX - $(this).offset().left);
+        var coorY = halfH - (event.pageY - $(this).offset().top);
+        var degX1 = (coorY / halfH) * 8 + 'deg';
+        var degY1 = (coorX / halfW) * -8 + 'deg';
+        var degX2 = (coorY / halfH) * -50 + 'px';
+        var degY2 = (coorX / halfW) * 70 + 'px';
+        var degX3 = (coorY / halfH) * -10 + 'px';
+        var degY3 = (coorX / halfW) * 10 + 'px';
+        var degX4 = (coorY / halfH) * 15 + 'deg';
+        var degY4 = (coorX / halfW) * -15 + 'deg';
+        var degX5 = (coorY / halfH) * -30 + 'px';
+        var degY5 = (coorX / halfW) * 60 + 'px';
+
+        $(this)
+          .find('.cs-hover_layer1')
+          .css('transform', function () {
+            return (
+              'perspective( 800px ) translate3d( 0, 0, 0 ) rotateX(' +
+              degX1 +
+              ') rotateY(' +
+              degY1 +
+              ')'
+            );
+          });
+        $(this)
+          .find('.cs-hover_layer2')
+          .css('transform', function () {
+            return (
+              'perspective( 800px ) translateY(' +
+              degX2 +
+              ') translateX(' +
+              degY2 +
+              ')'
+            );
+          });
+        $(this)
+          .find('.cs-hover_layer3')
+          .css('transform', function () {
+            return (
+              'perspective( 800px ) translateX(' +
+              degX3 +
+              ') translateY(' +
+              degY3 +
+              ') scale(1.02)'
+            );
+          });
+      })
+      .on('mouseout', '.cs-hobble', function () {
+        $(this).find('.cs-hover_layer1').removeAttr('style');
+        $(this).find('.cs-hover_layer2').removeAttr('style');
+        $(this).find('.cs-hover_layer3').removeAttr('style');
+      });
+  }
 
   // :: 7.0 CounterUp Active Code
   if ($.fn.counterUp) {
