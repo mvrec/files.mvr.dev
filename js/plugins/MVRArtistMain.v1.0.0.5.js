@@ -36,7 +36,7 @@
     hobbleEffect();
     //  hoverTab();
     //  lightGalleryInit();
-    //  scrollUp();
+    scrollUp();
     //  portfolioSection();
     //   parallaxSwiperSlider();
     //  fullScreenSwiperSlider();
@@ -44,6 +44,12 @@
      if ($.exists('.wow')) {
        new WOW().init();
      }
+  });
+
+  $(window).on('scroll', function () {
+  //  counterInit();
+  // parallaxEffect();
+    showScrollUp();
   });
 
   // :: Preloader
@@ -392,6 +398,28 @@
     $(this).css("background-image", "url(" + bg + ")");
   });
 
+  // :: Scroll Up
+  function scrollUp() {
+    $('.cs-scrollup').on('click', function (e) {
+      e.preventDefault();
+      $('html,body').animate(
+        {
+          scrollTop: 0,
+        },
+        0,
+      );
+    });
+  }
+  // :: For Scroll Up
+  function showScrollUp() {
+    let scroll = $(window).scrollTop();
+    if (scroll >= 350) {
+      $('.cs-scrollup').addClass('cs-scrollup_show');
+    } else {
+      $('.cs-scrollup').removeClass('cs-scrollup_show');
+    }
+  }
+
   // :: Cursor Animation
   $(function () {
     $("body").append('<span class="cs-cursor_lg d"></span>');
@@ -413,18 +441,7 @@
           y: event.clientY,
         },
       });
-
-      timing
-        .to(".cs-cursor_lg", {
-          ease: "power2.out",
-        })
-        .to(
-          ".cs-cursor_sm",
-          {
-            ease: "power2.out",
-          },
-          "-=0.4"
-        );
+      timing.to(".cs-cursor_lg",{ease:"power2.out"}).to(".cs-cursor_sm",{ease:"power2.out"},"-=0.4");
     } catch (err) {
       console.log(err);
     }
