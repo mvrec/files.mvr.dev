@@ -124,6 +124,10 @@ kbd {
   border-radius: 5px;
 }
 
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
 @media screen and (max-width: 991px) {
   h2 {
     margin-bottom: 10px;
@@ -1394,7 +1398,7 @@ label {
   font-weight: 500;
 }
 .cs-section_heading.cs-style1 .cs-section_title {
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 0;
 }
 .cs-section_heading.cs-style1 .cs-separator {
@@ -2292,7 +2296,7 @@ label {
 }
 @media screen and (max-width: 991px) {
   .cs-section_heading.cs-style1 .cs-section_title {
-    font-size: 36px;
+    font-size: 25px;
   }
   .cs-section_heading.cs-style1 .cs-section_subtitle {
     font-size: 16px;
@@ -5077,7 +5081,7 @@ label {
   top: 82%;
   left: 47%;
 }
-.cs-hero.cs-style3 .cs-circle_1 {
+.cs-hero.cs-style3 .cs-circle_1, .cs-circle_1 {
   height: 745px;
   width: 745px;
   border-radius: 50%;
@@ -5086,7 +5090,7 @@ label {
   top: -30%;
   left: -12%;
 }
-.cs-hero.cs-style3 .cs-circle_2 {
+.cs-hero.cs-style3 .cs-circle_2, .cs-circle_2 {
   height: 626px;
   width: 626px;
   border-radius: 50%;
