@@ -5103,12 +5103,6 @@ label {
   -webkit-animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
           animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
 }
-.circle_3.gray {
-  background:radial-gradient(50% 50% at 50% 50%, rgb(86, 86, 86, 22%) 0, rgba(86, 86, 86, 0) 100%)
-}
-.circle_3.blue {
-  background:radial-gradient(50% 50% at 50% 50%, rgb(0, 207, 221, 16%) 0, rgba(0, 207, 221, 0) 100%)
-}
 .cs-circle_3 {
   height: 626px;
   width: 626px;
@@ -5122,7 +5116,12 @@ label {
   -webkit-animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
           animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
 }
-
+.cs-circle_3.gray {
+  background:radial-gradient(50% 50% at 50% 50%, rgb(86, 86, 86, 22%) 0, rgba(86, 86, 86, 0) 100%);
+}
+.cs-circle_3.blue {
+  background:radial-gradient(50% 50% at 50% 50%, rgb(0, 207, 221, 16%) 0, rgba(0, 207, 221, 0) 100%);
+}
 .cs-hero.cs-style3 .cs-hero_highlite {
   position: absolute;
   height: 300px;
