@@ -5,11 +5,15 @@
       <stop offset="0" stop-color="#1fafd7"/>
       <stop offset="1" stop-color="#00cfdd"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="82.79" y1="136.33" x2="328.64" y2="136.33" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-2" x1="82.79" y1="136.33" x2="328.64" y2="136.33" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#03cddc"/>
+      <stop offset=".5" stop-color="#6666bf"/>
+      <stop offset="1" stop-color="#fb2962"/>
+    </linearGradient>
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
       <feOffset dx="2.19" dy="2.19"/>
       <feGaussianBlur result="blur" stdDeviation="1.57"/>
-      <feFlood flood-color="#000" flood-opacity=".15"/>
+      <feFlood flood-color="#000" flood-opacity=".05"/>
       <feComposite in2="blur" operator="in"/>
       <feComposite in="SourceGraphic"/>
     </filter>
