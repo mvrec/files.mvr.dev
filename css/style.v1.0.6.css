@@ -5081,7 +5081,7 @@ label {
   top: 82%;
   left: 47%;
 }
-.cs-hero.cs-style3 .cs-circle_1, .cs-circle_1 {
+.cs-hero.cs-style3 .cs-circle_1, .has-shapes .cs-circle_1 {
   height: 745px;
   width: 745px;
   border-radius: 50%;
@@ -5090,7 +5090,7 @@ label {
   top: -30%;
   left: -12%;
 }
-.cs-hero.cs-style3 .cs-circle_2, .cs-circle_2 {
+.cs-hero.cs-style3 .cs-circle_2 {
   height: 626px;
   width: 626px;
   border-radius: 50%;
@@ -5102,6 +5102,25 @@ label {
   top: 10%;
   -webkit-animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
           animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
+}
+.cs-circle_3 {
+  height: 626px;
+  width: 626px;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(252, 194, 33, 0.8) 0%, rgba(252, 194, 33, 0) 100%);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 10%;
+  -webkit-animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
+          animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running light-mode;
+}
+.circle_3.gray {
+  background:radial-gradient(50% 50% at 50% 50%, rgb(86, 86, 86, 22%) 0, rgba(86, 86, 86, 0) 100%)
+}
+.circle_3.blue {
+  background:radial-gradient(50% 50% at 50% 50%, rgb(0, 207, 221, 16%) 0, rgba(0, 207, 221, 0) 100%)
 }
 .cs-hero.cs-style3 .cs-hero_highlite {
   position: absolute;
@@ -5138,7 +5157,12 @@ label {
     margin-right: auto;
   }
 }
-
+@media screen and (max-width: 991px) {
+  .has-shapes .cs-circle_1{
+    top: -8%;
+    left: 58%;
+  }
+}
 .cs-hero.cs-style4,
 .cs-hero.cs-style5 {
   height: 100vh;
