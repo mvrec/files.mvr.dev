@@ -335,7 +335,7 @@ Artest Page
 }
 
 .player-section {
-  padding: 57px 53px;
+  padding: 125px 57px 45px 57px;
 }
 
 .player-box {
@@ -347,20 +347,21 @@ Artest Page
 
 .player-box {
   display: flex;
+  align-items: center;
 }
 
 .wave-player-warp {
   padding-top: 40px;
   position: relative;
-  width: calc(100% - 382px);
+  width: calc(100% - 325px);
 }
 
 .tarck-thumb-warp {
-  width: 382px;
+  width: 325px;
 }
 
 .tarck-thumb {
-  max-width: 333px;
+  max-width: 283px;
   position: relative;
 }
 
@@ -1040,6 +1041,7 @@ svg.css-1vp3f8h {
   }
   .tarck-thumb-warp .tarck-thumb {
     margin: 0 auto;
+    max-width: 100%;
   }
   .wave-player-info,
   .wavePlayer_controls {
@@ -1190,6 +1192,7 @@ svg.css-1vp3f8h {
   }
   .tarck-thumb-warp .tarck-thumb {
     margin: 0 auto;
+    max-width: 100%;
   }
   .wave-player-info,
   .wavePlayer_controls {
@@ -1257,7 +1260,7 @@ svg.css-1vp3f8h {
     padding: 0;
   }
   .player-box {
-    padding: 40px;
+    padding: 15px;
   }
   .contact-warp {
     padding: 100px 15px;
@@ -1309,8 +1312,10 @@ svg.css-1vp3f8h {
   .jp-duration {
     bottom: -31px;
   }
-  .player-section,
-  .player-box {
-    padding: 15px;
+  .player-section {
+    padding: 73px 15px 15px 15px;
+  }
+  .tarck-thumb {
+    max-width: 100%;
   }
 }
