@@ -12,7 +12,11 @@
   color: rgb(8 16 43);
   font-weight: 600;
   font-size: 11px;
-  background: #d0d7dbe3 !important;
+  background: -webkit-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -moz-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -o-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -ms-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: linear-gradient(to right, #03cddc 0%, #6666bf 50%, #fb2962 100%);  
   letter-spacing: 1px;
   border-radius: 4px;
   padding: 3px 8px;
