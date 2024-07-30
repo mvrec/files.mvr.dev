@@ -1,7 +1,11 @@
-/* © Copyright 2024 https://www.mixviberecords.com
- * Licensed Code With No Open Source Code
- * jQuery Codes
- * MVR Developers */
+/* 
+| © Copyright 2024 https://www.mixviberecords.com
+| Author: Mix Vibe Records
+| Version: 1.0.0
+| Licensed Code With No Open Source Code
+| jQuery Codes
+| MVR Developers
+*/
 
 (function ($) {
   "use strict";
