@@ -1595,7 +1595,7 @@ label {
 .cs-shape_wrap_1 .cs-shape_1:nth-child(2) {
   top: 30%;
   left: 72%;
-  border-left: 14px solid #6666bf;
+  border-left: 14px solid #fb2962;
   -webkit-transform: rotate(-15deg);
           transform: rotate(-15deg);
   -webkit-animation: semi-rotate-anim 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -1604,7 +1604,7 @@ label {
 .cs-shape_wrap_1 .cs-shape_1:nth-child(3) {
   top: 68%;
   left: 35%;
-  border-left: 14px solid #fb2962;
+  border-left: 14px solid #6666bf;
   -webkit-transform: rotate(-30deg);
           transform: rotate(-30deg);
   -webkit-animation: animo-x 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
