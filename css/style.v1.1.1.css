@@ -2072,8 +2072,8 @@ label {
   right: 40px;
   color: #fff;
   padding: 5px;
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2096,6 +2096,11 @@ label {
 .cs-scrollup:hover {
   background-color: #03cddc;
   color: #fff;
+}
+
+.cs-scrollup svg{
+  width: 15px;
+  height: 15px;
 }
 
 .cs-scrollup.cs-scrollup_show {
