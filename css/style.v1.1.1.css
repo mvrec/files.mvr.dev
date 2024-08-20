@@ -1585,6 +1585,7 @@ label {
 }
 .cs-shape_wrap_1 .cs-shape_1 {
   position: absolute;
+  z-index:2;
 }
 .cs-shape_wrap_1 .cs-shape_1:nth-child(1) {
   top: 25%;
