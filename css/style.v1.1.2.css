@@ -6439,7 +6439,11 @@ label {
 }
 .cs-iconbox.cs-style3 .cs-iconbox_icon:hover {
   color: #fff;
-  background-color: #03cddc;
+  background: -webkit-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -moz-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -o-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -ms-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: linear-gradient(to right, #03cddc 0%, #6666bf 50%, #fb2962 100%);
   border-color: #03cddc;
 }
 .cs-iconbox.cs-style3 .cs-iconbox_title {
@@ -6451,7 +6455,11 @@ label {
 }
 .cs-iconbox.cs-style3:hover .cs-iconbox_icon {
   color: #fff;
-  background-color: #03cddc;
+  background: -webkit-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -moz-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -o-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: -ms-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: linear-gradient(to right, #03cddc 0%, #6666bf 50%, #fb2962 100%);
   border-color: #03cddc;
 }
 
