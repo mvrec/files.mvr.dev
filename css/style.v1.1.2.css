@@ -3091,7 +3091,7 @@ label {
     display: none !important;
   }
   .cs-pagination.cs-style1 {
-    margin-top: 35px;
+    margin-top: 0;
   }
   .cs-slider_nav {
     position: initial;
