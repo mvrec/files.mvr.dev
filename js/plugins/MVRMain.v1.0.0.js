@@ -25,6 +25,7 @@
       stickyHeader();
       slickInit();
       hobbleEffect();
+      parallaxEffect();
       scrollUp();
        if ($.exists('.wow')) {
          new WOW().init();
@@ -33,7 +34,7 @@
   
     $(window).on('scroll', function () {
     // counterInit();
-    // parallaxEffect();
+      parallaxEffect();
       showScrollUp();
     });
   
@@ -351,6 +352,44 @@
         lastScrollTop = windowTop;
       });
     }
+
+  // :: Parallax
+  function parallaxEffect() {
+    $('.cs-parallax_bg, .cs-parallax').each(function () {
+      var windowScroll = $(document).scrollTop(),
+        windowHeight = $(window).height(),
+        barOffset = $(this).offset().top,
+        barHeight = $(this).height(),
+        barScrollAtZero = windowScroll - barOffset + windowHeight,
+        barHeightWindowHeight = windowScroll + windowHeight,
+        barScrollUp = barOffset <= windowScroll + windowHeight,
+        barSctollDown = barOffset + barHeight >= windowScroll;
+
+      if (barSctollDown && barScrollUp) {
+        var calculadedHeight = barHeightWindowHeight - barOffset;
+        var largeEffectPixel = calculadedHeight / 5 - 150;
+        var mediumEffectPixel = calculadedHeight / 20;
+        var miniEffectPixel = calculadedHeight / 10;
+
+        $(this)
+          .find('.cs-to_left')
+          .css('transform', `translateX(-${miniEffectPixel}px)`);
+        $(this)
+          .find('.cs-to_right')
+          .css('transform', `translateX(${miniEffectPixel}px)`);
+        $(this)
+          .find('.cs-to_up')
+          .css('transform', `translateY(-${miniEffectPixel}px)`);
+        $(this)
+          .find('.cs-to_down')
+          .css('transform', `translateY(${miniEffectPixel}px)`);
+        $(this)
+          .find('.cs-to_rotate')
+          .css('transform', `rotate(${miniEffectPixel}deg)`);
+        $(this).css('background-position', `center -${largeEffectPixel}px`);
+      }
+    });
+  }
   
     // :: 10.0 audioPlayer Active Code
     if ($.fn.audioPlayer) {
