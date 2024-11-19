@@ -1,91 +1,8 @@
 'use strict';
 
 $(function () {
-
-    // Countdown
-
-    /* Usage example
-    There are two ways to use this script. On is better for simple needs such a topbar. 
-    And the other one is good if you need to display more elements and have more control 
-    over the CSS
-
-    **** SIMPLE MODE ****: Just set a main Class and the content within the data attributes.
-                 (days), (hours), etc.. will be replaced and you can use
-                p_hours, p_minutes, etc.. for pluralization 
-
-    <div class="countdown simple-bar" data-Date='2021/9/5 17:12:0' data-endText="Offer ended">
-            (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
-    </div>
-
-    **** EXTENDED MODE: ****
-            <div class="countdown show" data-Date='2020/12/10 17:37:53'>
-            <h2>Live with  Madonna</h2>
-            <div class="running">
-                <timer>
-                  <span class = "days"></span>:<span class = "hours"></span>:<span class = "minutes"></span>:<span class = "seconds"></span>
-                </timer>
-                <div class = "break"></div>
-                <div class = "labels"><span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span></div>
-                <div class = "break"></div>
-                <div class="text">until Concert begins</div>
-                <div class = "break"></div>
-                <button>Buy Ticket Now!</button>
-            </div>
-
-            <div class="ended">
-                <div class="text">Show is ended</div>
-                <div class = "break"></div>
-                <button>Suscribe for next event!</button>
-            </div>
-        </div>
-
-    On this way, you have to setup a main Class, and the end Date in the data attributes.
-    Then, you need to use the classes "running" and "ended" (you can change the names) and the element <timer>
-    On this way, the "ended" class will be visible when the countdown is ready and you have a lot of 
-    control over the content and the layout.
-
-    *** TIMER Mode ***
-
-    On the timer mode, you have to enter the data in JSON format such in this example
-
-        <div class="countdown simple-bar fix" data-fixTime = '{"Days": "3", "Hours": "2", "Minutes": "10"}' data-endText="Offer ended">
-            (days) p_days, (hours) p_hours, (minutes) p_minutes and (seconds) p_seconds left!
-        </div>
-
-    *** ZERO-PAD ***
-    By default, Zero-PAdding is enabled. You can set it to false in a data attribute on this way:
-    
-    <div ......     data-zeroPad='{"Days": "false"}'>
-
-    Each variable (Days, Hours, Minutes and Seconds) can be set to false
-
-
-    TODO:
-    - cookie (or localStorage)
-    - pluralization: it works now but only in simple mode, and only in English
-    - weeks support
-    - prevent errors with false configs
-    
- 
-
-    CONFIG:
-    - mainClass
-    - Offset Location
-    - runningClass (optional)
-    - endedClass (optional)
-
-
-    offset value base on which location time zone you would like to set 
-    For India offset value +5.5,
-    New York offset value -4,
-    London offset value +1
-
-    All locations offset: https://en.wikipedia.org/wiki/List_of_UTC_time_offsets
-    */
-
-
     // CONFIG
-
+    let countPage = ".timebox";
     let mainClass = '.countdown';
     let OffsetLocation = 5.5; // Adjusted for Indian Standard Time (UTC+5:30)
 
@@ -134,6 +51,7 @@ $(function () {
             if (endText != undefined) { //case data-endText attr
                 $('.' + extraClass).text(endText);
             } else { //case with two blocks
+                $(countPage).css('display', 'none');
                 $('.' + extraClass + ' ' + runningClass).css('display', 'none');
                 $('.' + extraClass + ' ' + endedClass).css('display', 'flex');
             }
