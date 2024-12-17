@@ -160,13 +160,18 @@
 .like.is-liked svg {
   fill: #00c5cd;
 }
-span.share label {
+span.share label, span.qrcode label {
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 span.share label:after {
   content: 'Share';
+  width: 100%;
+  font-size: 13px;
+}
+span.qrcode label:after {
+  content: 'QR Share';
   width: 100%;
   font-size: 13px;
 }
