@@ -143,9 +143,12 @@
 .songs-options span label {
   cursor: pointer;
 }
+.songs-options svg {
+  width: 30px;
+  height: 30px;
+}
 .like {
   cursor: pointer;
-  color: var(--iconC);
 }
 .like svg {
   transition: transform 0.15s cubic-bezier(0.17, 0.67, 0.29, 2.71) 0s;
@@ -157,6 +160,17 @@
 .like.is-liked svg {
   fill: #00c5cd;
 }
+span.share label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+span.share label:after {
+  content: 'Share';
+  width: 100%;
+  font-size: 13px;
+}
+
 .single_player_container {
   margin-top: 30px;
   padding-left: 10px;
