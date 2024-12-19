@@ -508,9 +508,9 @@ Artest Page
 .aBm-dTls-bx ul strong {
   float: left;
   margin-right: 6px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--headC);
-  font-family: var(--fontNPR);
+  font-family: var(--fontCD);
   letter-spacing: .09em;
 }
 
@@ -520,7 +520,6 @@ Artest Page
   color: var(--bodyT2);
   font-weight: 400;
   font-family: var(--fontB);
-  line-height: 25px;
 }
 
 .aBm-dTls-bx .single_player_container {
