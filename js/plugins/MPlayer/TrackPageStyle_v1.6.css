@@ -128,6 +128,8 @@
   padding-top: 26px;
   display: flex;
   justify-content: right;
+  font-family: var(--fontCD);
+  letter-spacing: 0.8px;
 }
 
 .songs-options a {
@@ -439,9 +441,14 @@ Artest Page
 }
 .wave-player-info .itm .aTst-nMe {
   font-size: 14px;
-  font-family: var(--fontB);
+  font-family: var(--fontCD);
+  letter-spacing: 0.8px;
+  font-weight: 500;
 }
-
+.wave-player-info .itm {
+  font-family: var(--fontCD);
+  letter-spacing: 0.8px;
+}
 .wavePlayer_controls {
   padding-top: 5px;
   padding-bottom: 10px;
