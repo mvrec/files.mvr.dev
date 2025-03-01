@@ -9,7 +9,7 @@
 ul {
   margin: 0 0 25px 0;
   padding-left: 20px;
-  list-style: square outside none;
+  list-style: disc;
 }
 
 ol {
