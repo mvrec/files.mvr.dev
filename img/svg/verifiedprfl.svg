@@ -66,7 +66,7 @@
 	<polygon class="st2" points="38.4,549 137.6,548.7 236.8,548.6 435.2,548.3 633.6,548.6 732.8,548.7 832,549 732.8,549.3 
 		633.6,549.4 435.2,549.6 236.8,549.4 137.6,549.3 	"/>
 </g>
-<image style="overflow:visible;" width="1920" height="1080" xlink:href="https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/svg/embed-imgs/artistpf.png"  transform="matrix(0.3832 0 0 0.3832 172.175 95.2464)">
+<image style="overflow:visible;" width="1920" height="1080" href="https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/svg/embed-imgs/artistpf.png"  transform="matrix(0.3832 0 0 0.3832 172.175 95.2464)">
 </image>
 <line class="st6" x1="102.3" y1="101.8" x2="102.3" y2="0"/>
 <polygon class="st7" points="136,134.2 133.2,140.2 71.4,140.2 68.7,134.2 95,116 109.6,116 "/>
