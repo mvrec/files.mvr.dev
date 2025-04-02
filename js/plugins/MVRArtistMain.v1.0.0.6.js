@@ -60,6 +60,8 @@
   function preloader() {
     $(".loader").fadeOut();
     $("#preloder").delay(400).fadeOut("slow");
+    $('.cs-preloader_in').fadeOut();
+    $('.cs-preloader').delay(150).fadeOut('slow');
   }
 
   // :: Slick Slider
