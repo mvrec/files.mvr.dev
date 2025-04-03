@@ -27,7 +27,7 @@
     // $(window).trigger('resize');
     // mainNav();
     stickyHeader();
-    // dynamicBackground();
+    dynamicBackground();
     slickInit();
     // isotopInit();
     // review();
@@ -62,6 +62,45 @@
     $("#preloder").delay(400).fadeOut("slow");
     $('.cs-preloader_in').fadeOut();
     $('.cs-preloader').delay(150).fadeOut('slow');
+  }
+
+  // :: Sticky Header
+  function stickyHeader() {
+    var $window = $(window);
+    var lastScrollTop = 0;
+    var $header = $('.cs-sticky_header');
+    var headerHeight = $header.outerHeight() + 30;
+
+    $window.scroll(function () {
+      var windowTop = $window.scrollTop();
+
+      if (windowTop >= headerHeight) {
+        $header.addClass('cs-gescout_sticky');
+      } else {
+        $header.removeClass('cs-gescout_sticky');
+        $header.removeClass('cs-gescout_show');
+      }
+
+      if ($header.hasClass('cs-gescout_sticky')) {
+        if (windowTop < lastScrollTop) {
+          $header.addClass('cs-gescout_show');
+        } else {
+          $header.removeClass('cs-gescout_show');
+        }
+      }
+
+      lastScrollTop = windowTop;
+    });
+  }
+
+  // :: Dynamic Background
+  function dynamicBackground() {
+    $('[data-src]').each(function () {
+      var src = $(this).attr('data-src');
+      $(this).css({
+        'background-image': 'url(' + src + ')',
+      });
+    });
   }
 
   // :: Slick Slider
@@ -341,35 +380,6 @@
     $(".counter").counterUp({
       delay: 10,
       time: 2000,
-    });
-  }
-
-  // :: Sticky Header
-  function stickyHeader() {
-    var $window = $(window);
-    var lastScrollTop = 0;
-    var $header = $('.cs-sticky_header');
-    var headerHeight = $header.outerHeight() + 30;
-
-    $window.scroll(function () {
-      var windowTop = $window.scrollTop();
-
-      if (windowTop >= headerHeight) {
-        $header.addClass('cs-gescout_sticky');
-      } else {
-        $header.removeClass('cs-gescout_sticky');
-        $header.removeClass('cs-gescout_show');
-      }
-
-      if ($header.hasClass('cs-gescout_sticky')) {
-        if (windowTop < lastScrollTop) {
-          $header.addClass('cs-gescout_show');
-        } else {
-          $header.removeClass('cs-gescout_show');
-        }
-      }
-
-      lastScrollTop = windowTop;
     });
   }
 
