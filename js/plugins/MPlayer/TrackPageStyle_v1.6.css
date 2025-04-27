@@ -520,10 +520,10 @@ Artest Page
 .aBm-dTls-bx ul strong {
   float: left;
   margin-right: 6px;
-  font-weight: 500;
+  font-weight: 450;
   color: var(--headC);
   font-family: var(--fontCD);
-  letter-spacing: .09em;
+  letter-spacing: .01em;
 }
 
 .aBm-dTls-bx ul span {
