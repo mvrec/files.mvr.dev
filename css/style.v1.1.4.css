@@ -2810,12 +2810,23 @@ label {
 .cs-slider_arrows.cs-style1 .slick-arrow {
   width: 60px;
   height: 35px;
-  border: 2px solid currentColor;
+  border: 2px solid var(--contentBo);
   border-radius: 5px;
   margin: 8px;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+.cs-slider_arrows.cs-style1 .slick-view-all{
+  font-size: 13px;
+  width: 70px;
+  height: 35px;
+  border: 2px solid var(--contentBo);
+  border-radius: 5px;
+  margin: 8px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
 }
 .cs-slider_arrows.cs-style1 .slick-arrow:hover {
   color: #fff;
