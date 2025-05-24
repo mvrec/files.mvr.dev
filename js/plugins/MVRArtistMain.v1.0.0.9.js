@@ -450,6 +450,7 @@
         }
         if (pinId) {
           $(".profile__img").addClass("status");
+          $('.profile__img').append('<div class="dot-lg"></div><div class="gradient-ring"></div>');
           $("#data-pin").attr({
             src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
           });
