@@ -29,8 +29,8 @@
     scrollUp();
     coverArtMoreOption();
     pinnedStatus();
-    youTubeVideosTab();
-    youTubePlaylistVideosTab();
+   // youTubeVideosTab();
+   // youTubePlaylistVideosTab();
     if ($.exists(".wow")) {
       new WOW().init();
     }
