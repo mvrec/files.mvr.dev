@@ -29,8 +29,8 @@
     scrollUp();
     coverArtMoreOption();
     pinnedStatus();
-   // youTubeVideosTab();
-   // youTubePlaylistVideosTab();
+    // youTubeVideosTab();
+    // youTubePlaylistVideosTab();
     if ($.exists(".wow")) {
       new WOW().init();
     }
@@ -461,63 +461,145 @@
   // :: Artist Profie YouTube Tab
   function youTubeVideosTab() {
     $(document).ready(function () {
-      const $targetSpan = $("span[data-yt-video]");
-      let pinId = $targetSpan.attr("data-yt-video");
-      if (pinId) {
-        $(".tab-content").append(`<div role="tabpanel" class="tab-pane" id="artist-videos"><div class="aRt-dTls-bx border-bottom"><div class="aRt_heading_btn_bx"><h6>Recent YouTube Uploads</h6><div class="aRt_heading_btn"><a href="https://www.youtube.com/channel/${pinId}" target="_blank"><div class="cs-center aRt_btn_view-all">View All </div></a></div></div><div class="cs-height_10 cs-height_lg_20"></div><div class="row" id="yTvideos"></div></div></div>`);
-        $(".artist_navigation_tabs").append(`<span role="presentation"><a href="#artist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa-brands fa-youtube"></i> Videos</a></span>`);
+      const $videoSpan = $("span[data-yt-video]");
+      let videoChannelId = $videoSpan.attr("data-yt-video");
+      if (videoChannelId) {
+        $(".tab-content").append(
+          `<div role="tabpanel" class="tab-pane" id="artist-videos"><div class="aRt-dTls-bx border-bottom"><div class="aRt_heading_btn_bx"><h6>Recent YouTube Uploads</h6><div class="aRt_heading_btn"><a href="https://www.youtube.com/channel/${videoChannelId}?sub_confirmation=1" target="_blank"><div class="cs-center aRt_btn_view-all subscribe">Subscribe</div></a></div></div><div class="cs-height_10 cs-height_lg_20"></div><div class="row" id="yTvideos"></div></div></div>`
+        );
+        $(".artist_navigation_tabs").append(
+          `<span role="presentation"><a href="#artist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa-brands fa-youtube"></i> Videos</a></span>`
+        );
         const $ytvcontainer = $("#yTvideos");
         setTimeout(function () {
           if ($ytvcontainer) {
-            const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${pinId}`)}`;
-            $.getJSON(feedURL, function (data) {
+            const ytvfeedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+              `https://www.youtube.com/feeds/videos.xml?channel_id=${videoChannelId}`
+            )}`;
+            $.getJSON(ytvfeedURL, function (data) {
               if (!data.items) return;
               data.items.forEach((item) => {
-                const videoID = item.link.split("v=")[1];
-                const date = new Date(item.pubDate);
-                const day = ("0" + date.getDate()).slice(-2);
-                const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-                const month = monthNames[date.getMonth()];
-                const videoHTML = `<div class="col-12 col-md-6 col-lg-4"><div class="blog-grid"><div class="blog-img"><div class="date"><span>${day}</span><label>${month}</label></div><a href="https://youtube.com/watch?v=${videoID}" target="_blank"><img src="https://img.youtube.com/vi/${videoID}/maxresdefault.jpg" title="${item.title}" alt="${item.title}"></a></div><div class="blog-info"><h6 class="ellipsis"><a href="https://youtube.com/watch?v=${videoID}" target="_blank">${item.title}</a></h6><div class="btn-bar"></div></div></div></div>`;
-                $ytvcontainer.append(videoHTML);
+                const ytvvideoID = item.link.split("v=")[1];
+                const ytvdate = new Date(item.pubDate);
+                const ytvday = ("0" + ytvdate.getDate()).slice(-2);
+                const ytvmonthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                const ytvmonth = ytvmonthNames[ytvdate.getMonth()];
+                const ytvvideoHTML = `<div class="col-12 col-md-6 col-lg-4"><div class="blog-grid"><div class="blog-img"><div class="date"><span>${ytvday}</span><label>${ytvmonth}</label></div><a href="https://youtube.com/watch?v=${ytvvideoID}" target="_blank"><img src="https://img.youtube.com/vi/${ytvvideoID}/maxresdefault.jpg" title="${item.title}" alt="${item.title}"></a></div><div class="blog-info"><h6 class="ellipsis"><a href="https://youtube.com/watch?v=${ytvvideoID}" target="_blank">${item.title}</a></h6><div class="btn-bar"></div></div></div></div>`;
+                $ytvcontainer.append(ytvvideoHTML);
               });
             });
           }
         }, 2000);
-      } else {
-        // console.log("data-yt-video not enabled");
       }
     });
   }
   // :: Artist Profie YouTube Playlist Tab
   function youTubePlaylistVideosTab() {
     $(document).ready(function () {
-      const $targetSpan = $("span[data-yt-playlist]");
-      let pinId = $targetSpan.attr("data-yt-playlist");
-      if (pinId) {
-        $(".tab-content").append(`<div role="tabpanel" class="tab-pane" id="artist-playlist-videos"><div class="aRt-dTls-bx border-bottom"><div class="aRt_heading_btn_bx"><h6>Featured YouTube Playlist</h6><div class="aRt_heading_btn"><a href="https://youtube.com/playlist?list=${pinId}" target="_blank"><div class="cs-center aRt_btn_view-all">View All </div></a></div></div><div class="cs-height_10 cs-height_lg_20"></div><div class="row" id="yTpvideos"></div></div></div>`);
-        $(".artist_navigation_tabs").append(`<span role="presentation"><a href="#artist-playlist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa-brands fa-youtube"></i> Playlist Videos</a></span>`);
-        const $ytvcontainer = $("#yTpvideos");
-        setTimeout(function () {
-          if ($ytvcontainer) {
-            const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?playlist_id=${pinId}`)}`;
-            $.getJSON(feedURL, function (data) {
-              if (!data.items) return;
-              data.items.forEach((item) => {
-                const videoID = item.link.split("v=")[1];
-                const date = new Date(item.pubDate);
-                const day = ("0" + date.getDate()).slice(-2);
-                const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-                const month = monthNames[date.getMonth()];
-                const videoHTML = `<div class="col-12 col-md-6 col-lg-4"><div class="blog-grid"><div class="blog-img"><div class="date"><span>${day}</span><label>${month}</label></div><a href="https://youtube.com/watch?v=${videoID}" target="_blank"><img src="https://img.youtube.com/vi/${videoID}/maxresdefault.jpg" title="${item.title}" alt="${item.title}"></a></div><div class="blog-info"><h6 class="ellipsis"><a href="https://youtube.com/watch?v=${videoID}" target="_blank">${item.title}</a></h6><div class="btn-bar"></div></div></div></div>`;
-                $ytvcontainer.append(videoHTML);
+    const $playlistSpan = $("span[data-yt-playlist]");
+  const playlistIdStr = $playlistSpan.attr("data-yt-playlist");
+  
+  if (playlistIdStr) {
+    const playlistIds = playlistIdStr.split(',').map(id => id.trim());
+
+    $(".tab-content").append(
+      `<div role="tabpanel" class="tab-pane" id="artist-playlist-videos">
+        <div class="aRt-dTls-bx border-bottom">
+          <div class="aRt_heading_btn_bx">
+            <h6>Featured YouTube Playlist${playlistIds.length > 1 ? 's' : ''}</h6>
+          </div>
+          <div class="cs-height_10 cs-height_lg_30"></div>
+          <div class="yTp-container" id="yTpvideos"></div>
+        </div>
+      </div>`
+    );
+
+    $(".artist_navigation_tabs").append(
+      `<span role="presentation">
+        <a href="#artist-playlist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" 
+           aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false">
+          <i class="fa-brands fa-youtube"></i> YouTube Playlists
+        </a>
+      </span>`
+    );
+
+    const $ytvpcontainer = $("#yTpvideos");
+    setTimeout(function () {
+      if ($ytvpcontainer) {
+        const ytvpfetchPromises = playlistIds.map(playlistId => {
+          const ytvpfeedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+            `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
+          )}`;
+          return $.getJSON(ytvpfeedURL);
+        });
+
+        Promise.all(ytvpfetchPromises)
+          .then(results => {
+            results.forEach((data, index) => {
+              if (!data.items || !data.feed) return;
+              
+              const playlistId = playlistIds[index];
+              const playlistTitle = data.feed.title || `Playlist ${index + 1}`;
+
+
+              const playlistHTML = `
+                <div class="playlist-section aRt-dTls-bx border-bottom">
+                  <div class="playlist-header">
+                    <h6 class="playlist-title">
+                      <a href="https://youtube.com/playlist?list=${playlistId}" target="_blank">
+                        ${playlistTitle}
+                        <i class="fas fa-external-link-alt"></i>
+                      </a>
+                    </h6>
+                  </div>
+                  <div class="row playlist-videos mb-4"></div>
+                </div>`;
+              
+              const $playlistSection = $(playlistHTML);
+              $ytvpcontainer.append($playlistSection);
+              const $videoRow = $playlistSection.find('.playlist-videos');
+
+
+              data.items.forEach(item => {
+                const ytvpvideoID = item.link.split("v=")[1];
+                const ytvppubDate = new Date(item.pubDate);
+                const ytvpday = ("0" + ytvppubDate.getDate()).slice(-2);
+                const ytvpmonthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+                                 "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                const ytvpmonth = ytvpmonthNames[ytvppubDate.getMonth()];
+
+                const videoHTML = `
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="blog-grid">
+                      <div class="blog-img">
+                        <div class="date">
+                          <span>${ytvpday}</span>
+                          <label>${ytvpmonth}</label>
+                        </div>
+                        <a href="https://youtube.com/watch?v=${ytvpvideoID}" target="_blank">
+                          <img src="https://img.youtube.com/vi/${ytvpvideoID}/maxresdefault.jpg" 
+                               title="${item.title}" alt="${item.title}">
+                        </a>
+                      </div>
+                      <div class="blog-info">
+                        <h6 class="ellipsis">
+                          <a href="https://youtube.com/watch?v=${ytvpvideoID}" target="_blank">${item.title}</a>
+                        </h6>
+                        <div class="btn-bar"></div>
+                      </div>
+                    </div>
+                  </div>`;
+                
+                $videoRow.append(videoHTML);
               });
             });
-          }
-        }, 2000);
-      } else {
-        // console.log("data-yt-video not enabled");
+          })
+          .catch(error => {
+            console.error('Error fetching YouTube playlists:', error);
+          });
       }
+    }, 2000);
+  }
     });
   }
 
