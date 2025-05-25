@@ -22,29 +22,15 @@
   });
 
   $(function () {
-    // $(window).trigger('resize');
-    // mainNav();
     stickyHeader();
     dynamicBackground();
     slickInit();
-    // isotopInit();
-    // review();
-    // modalVideo();
-    // tabs();
-    //  accordian();
-    //  counterInit();
-    //  rippleInit();
-    //  parallaxEffect();
     hobbleEffect();
-    //  hoverTab();
-    //  lightGalleryInit();
     scrollUp();
     coverArtMoreOption();
     pinnedStatus();
-    //  portfolioSection();
-    //   parallaxSwiperSlider();
-    //  fullScreenSwiperSlider();
-    //  ecommerce();
+    youTubeVideosTab();
+    youTubePlaylistVideosTab();
     if ($.exists(".wow")) {
       new WOW().init();
     }
@@ -414,6 +400,7 @@
     $(this).css("background-image", "url(" + bg + ")");
   });
 
+  // :: Album Cover More Option
   function coverArtMoreOption() {
     $(".mv_cover_more_icon").on("click", function (e) {
       e.preventDefault();
@@ -437,7 +424,7 @@
       $(".ms_tranding_box_overlay.active").removeClass("active");
     });
   }
-
+  // :: Artist Profie DP Status
   function pinnedStatus() {
     $(document).ready(function () {
       const $targetSpan = $("span[data-pin-track], span[data-pin-album]");
@@ -450,7 +437,7 @@
         }
         if (pinId) {
           $(".profile__img").addClass("status");
-          $('.profile__img').append('<div class="dot-lg"></div><div class="gradient-ring"></div>');
+          $(".profile__img").append('<div class="dot-lg"></div><div class="gradient-ring"></div>');
           $("#data-pin").attr({
             src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
           });
@@ -469,6 +456,68 @@
         $pinbox.removeClass("show");
         $pinboxovly.removeClass("show");
       });
+    });
+  }
+  // :: Artist Profie YouTube Tab
+  function youTubeVideosTab() {
+    $(document).ready(function () {
+      const $targetSpan = $("span[data-yt-video]");
+      let pinId = $targetSpan.attr("data-yt-video");
+      if (pinId) {
+        $(".tab-content").append(`<div role="tabpanel" class="tab-pane" id="artist-videos"><div class="aRt-dTls-bx border-bottom"><div class="aRt_heading_btn_bx"><h6>Recent YouTube Uploads</h6><div class="aRt_heading_btn"><a href="https://www.youtube.com/channel/${pinId}" target="_blank"><div class="cs-center aRt_btn_view-all">View All </div></a></div></div><div class="cs-height_10 cs-height_lg_20"></div><div class="row" id="yTvideos"></div></div></div>`);
+        $(".artist_navigation_tabs").append(`<span role="presentation"><a href="#artist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa-brands fa-youtube"></i> Videos</a></span>`);
+        const $ytvcontainer = $("#yTvideos");
+        setTimeout(function () {
+          if ($ytvcontainer) {
+            const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${pinId}`)}`;
+            $.getJSON(feedURL, function (data) {
+              if (!data.items) return;
+              data.items.forEach((item) => {
+                const videoID = item.link.split("v=")[1];
+                const date = new Date(item.pubDate);
+                const day = ("0" + date.getDate()).slice(-2);
+                const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                const month = monthNames[date.getMonth()];
+                const videoHTML = `<div class="col-12 col-md-6 col-lg-4"><div class="blog-grid"><div class="blog-img"><div class="date"><span>${day}</span><label>${month}</label></div><a href="https://youtube.com/watch?v=${videoID}" target="_blank"><img src="https://img.youtube.com/vi/${videoID}/maxresdefault.jpg" title="${item.title}" alt="${item.title}"></a></div><div class="blog-info"><h6 class="ellipsis"><a href="https://youtube.com/watch?v=${videoID}" target="_blank">${item.title}</a></h6><div class="btn-bar"></div></div></div></div>`;
+                $ytvcontainer.append(videoHTML);
+              });
+            });
+          }
+        }, 2000);
+      } else {
+        // console.log("data-yt-video not enabled");
+      }
+    });
+  }
+  // :: Artist Profie YouTube Playlist Tab
+  function youTubePlaylistVideosTab() {
+    $(document).ready(function () {
+      const $targetSpan = $("span[data-yt-playlist]");
+      let pinId = $targetSpan.attr("data-yt-playlist");
+      if (pinId) {
+        $(".tab-content").append(`<div role="tabpanel" class="tab-pane" id="artist-playlist-videos"><div class="aRt-dTls-bx border-bottom"><div class="aRt_heading_btn_bx"><h6>Featured YouTube Playlist</h6><div class="aRt_heading_btn"><a href="https://youtube.com/playlist?list=${pinId}" target="_blank"><div class="cs-center aRt_btn_view-all">View All </div></a></div></div><div class="cs-height_10 cs-height_lg_20"></div><div class="row" id="yTpvideos"></div></div></div>`);
+        $(".artist_navigation_tabs").append(`<span role="presentation"><a href="#artist-playlist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa-brands fa-youtube"></i> Playlist Videos</a></span>`);
+        const $ytvcontainer = $("#yTpvideos");
+        setTimeout(function () {
+          if ($ytvcontainer) {
+            const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?playlist_id=${pinId}`)}`;
+            $.getJSON(feedURL, function (data) {
+              if (!data.items) return;
+              data.items.forEach((item) => {
+                const videoID = item.link.split("v=")[1];
+                const date = new Date(item.pubDate);
+                const day = ("0" + date.getDate()).slice(-2);
+                const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                const month = monthNames[date.getMonth()];
+                const videoHTML = `<div class="col-12 col-md-6 col-lg-4"><div class="blog-grid"><div class="blog-img"><div class="date"><span>${day}</span><label>${month}</label></div><a href="https://youtube.com/watch?v=${videoID}" target="_blank"><img src="https://img.youtube.com/vi/${videoID}/maxresdefault.jpg" title="${item.title}" alt="${item.title}"></a></div><div class="blog-info"><h6 class="ellipsis"><a href="https://youtube.com/watch?v=${videoID}" target="_blank">${item.title}</a></h6><div class="btn-bar"></div></div></div></div>`;
+                $ytvcontainer.append(videoHTML);
+              });
+            });
+          }
+        }, 2000);
+      } else {
+        // console.log("data-yt-video not enabled");
+      }
     });
   }
 
