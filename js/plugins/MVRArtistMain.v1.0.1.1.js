@@ -496,53 +496,52 @@
   // :: Artist Profie YouTube Playlist Tab
   function youTubePlaylistVideosTab() {
     $(document).ready(function () {
-    const $playlistSpan = $("span[data-yt-playlist]");
-  const playlistIdStr = $playlistSpan.attr("data-yt-playlist");
-  
-  if (playlistIdStr) {
-    const playlistIds = playlistIdStr.split(',').map(id => id.trim());
+      const $playlistSpan = $("span[data-yt-playlist]");
+      const playlistIdStr = $playlistSpan.attr("data-yt-playlist");
 
-    $(".tab-content").append(
-      `<div role="tabpanel" class="tab-pane" id="artist-playlist-videos">
+      if (playlistIdStr) {
+        const playlistIds = playlistIdStr.split(",").map((id) => id.trim());
+
+        $(".tab-content").append(
+          `<div role="tabpanel" class="tab-pane" id="artist-playlist-videos">
         <div class="aRt-dTls-bx border-bottom">
           <div class="aRt_heading_btn_bx">
-            <h6>Featured YouTube Playlist${playlistIds.length > 1 ? 's' : ''}</h6>
+            <h6>Featured YouTube Playlist${playlistIds.length > 1 ? "s" : ""}</h6>
           </div>
           <div class="cs-height_10 cs-height_lg_30"></div>
           <div class="yTp-container" id="yTpvideos"></div>
         </div>
       </div>`
-    );
+        );
 
-    $(".artist_navigation_tabs").append(
-      `<span role="presentation">
+        $(".artist_navigation_tabs").append(
+          `<span role="presentation">
         <a href="#artist-playlist-videos" class="font-NPB navigation_tab_btns tab_btns_size_md variant-secondary" 
            aria-controls="related-artists" role="tab" data-toggle="tab" aria-expanded="false">
           <i class="fa-brands fa-youtube"></i> YouTube Playlists
         </a>
       </span>`
-    );
+        );
 
-    const $ytvpcontainer = $("#yTpvideos");
-    setTimeout(function () {
-      if ($ytvpcontainer) {
-        const ytvpfetchPromises = playlistIds.map(playlistId => {
-          const ytvpfeedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-            `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
-          )}`;
-          return $.getJSON(ytvpfeedURL);
-        });
+        const $ytvpcontainer = $("#yTpvideos");
+        setTimeout(function () {
+          if ($ytvpcontainer) {
+            const ytvpfetchPromises = playlistIds.map((playlistId) => {
+              const ytvpfeedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+                `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
+              )}`;
+              return $.getJSON(ytvpfeedURL);
+            });
 
-        Promise.all(ytvpfetchPromises)
-          .then(results => {
-            results.forEach((data, index) => {
-              if (!data.items || !data.feed) return;
-              
-              const playlistId = playlistIds[index];
-              const playlistTitle = data.feed.title || `Playlist ${index + 1}`;
+            Promise.all(ytvpfetchPromises)
+              .then((results) => {
+                results.forEach((data, index) => {
+                  if (!data.items || !data.feed) return;
 
+                  const playlistId = playlistIds[index];
+                  const playlistTitle = data.feed.title || `Playlist ${index + 1}`;
 
-              const playlistHTML = `
+                  const playlistHTML = `
                 <div class="playlist-section aRt-dTls-bx border-bottom">
                   <div class="playlist-header">
                     <h6 class="playlist-title">
@@ -554,21 +553,19 @@
                   </div>
                   <div class="row playlist-videos mb-4"></div>
                 </div>`;
-              
-              const $playlistSection = $(playlistHTML);
-              $ytvpcontainer.append($playlistSection);
-              const $videoRow = $playlistSection.find('.playlist-videos');
 
+                  const $playlistSection = $(playlistHTML);
+                  $ytvpcontainer.append($playlistSection);
+                  const $videoRow = $playlistSection.find(".playlist-videos");
 
-              data.items.forEach(item => {
-                const ytvpvideoID = item.link.split("v=")[1];
-                const ytvppubDate = new Date(item.pubDate);
-                const ytvpday = ("0" + ytvppubDate.getDate()).slice(-2);
-                const ytvpmonthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
-                                 "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-                const ytvpmonth = ytvpmonthNames[ytvppubDate.getMonth()];
+                  data.items.forEach((item) => {
+                    const ytvpvideoID = item.link.split("v=")[1];
+                    const ytvppubDate = new Date(item.pubDate);
+                    const ytvpday = ("0" + ytvppubDate.getDate()).slice(-2);
+                    const ytvpmonthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                    const ytvpmonth = ytvpmonthNames[ytvppubDate.getMonth()];
 
-                const videoHTML = `
+                    const videoHTML = `
                   <div class="col-12 col-md-6 col-lg-4">
                     <div class="blog-grid">
                       <div class="blog-img">
@@ -589,17 +586,17 @@
                       </div>
                     </div>
                   </div>`;
-                
-                $videoRow.append(videoHTML);
+
+                    $videoRow.append(videoHTML);
+                  });
+                });
+              })
+              .catch((error) => {
+                console.error("Error fetching YouTube playlists:", error);
               });
-            });
-          })
-          .catch(error => {
-            console.error('Error fetching YouTube playlists:', error);
-          });
+          }
+        }, 2000);
       }
-    }, 2000);
-  }
     });
   }
 
