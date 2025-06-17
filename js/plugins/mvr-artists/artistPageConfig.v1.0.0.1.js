@@ -25,20 +25,15 @@
 
   function nonClaimed() {
     $(document).ready(function () {
-      $(".artist").hasClass("is-verified")
-        ? ($("#d-btn-sm").attr("style", "display: flex !important;", "slow"),
-          $(".artist__listeners").show(),
-          $(".artist__navigation__social").show(),
-          $("ul.ftMn li:nth-child(1)").hide())
-        : ($(".artist__info__type").text("NOT CLAIMED"),
-          $("ul.ftMn li:nth-child(1)").show(),
-          $("#d-btn-sm").remove(),
-          $(".artist_navigation").remove(),
-          $(".artist__listeners").remove(),
-          $(".artist-details-section").remove(),
-          $("#NonClaimPromo").show(),
-          $(".aRt-PGbg").css({
-            "background-image": "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/hero-bg06.webp)",
+      $(".artist__avatar").hasClass("artist__avatar--verified")
+        ? ($("#NonClaimPromo").remove())
+        : ($("#NonClaimPromo").show(),
+          $(".artist__nickname").text("NOT CLAIMED"),
+          $(".artist__social").remove(),
+          $(".artist__sinfo").remove(),
+          $(".artist__link").remove(),
+          $(".artist_main__artist").css({
+            "background-image": "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx0-9.webp)",
             height: "100%",
           }));
     });
@@ -57,7 +52,7 @@
         }
         if (pinId) {
           $(".artist__avatar").addClass("status");
-          $(".artist__avatar").append('<div class="gradient-ring"></div>');
+          $(".artist__avatar").append('<div class="gradient-rng"></div>');
           $("#data-pin").attr({
             src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
           });
