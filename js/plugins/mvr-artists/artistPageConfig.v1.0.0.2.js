@@ -33,7 +33,7 @@
           $(".artist__sinfo").remove(),
           $(".artist__link").remove(),
           $(".artist_main__artist").css({
-            "background-image": "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx0-9.webp)"}));
+            "background-image": "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx8.webp)"}));
     });
   }
 
