@@ -30,6 +30,7 @@
         : ($("#NonClaimPromo").show(),
           $(".artist__nickname").text("NOT CLAIMED"),
           $(".artist__social").remove(),
+          $(".artist__code").remove(),
           $(".artist__sinfo").remove(),
           $(".artist__link").remove(),
           $(".artist_main__artist").css({
