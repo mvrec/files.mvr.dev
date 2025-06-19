@@ -52,6 +52,7 @@
         if (pinId) {
           $(".artist__avatar").addClass("status");
           $(".artist__avatar").append('<div class="gradient-rng"></div>');
+          $(".artist__meta").append('<span class="statustooltip">Artist Pick</span>');
           $("#data-pin").attr({
             src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
           });
