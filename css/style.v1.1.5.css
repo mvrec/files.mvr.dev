@@ -599,7 +599,7 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
 }
 .cs-text_btn svg {
@@ -2823,7 +2823,7 @@ label {
   transition: all .3s ease;
 }
 .cs-slider_arrows.cs-style1 .slick-arrow:hover {
-  color: #fff;
+  color: #1a1a1a;
   background-color: #c9f401;
   border-color: #c9f401;
 }
