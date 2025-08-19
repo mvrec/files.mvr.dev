@@ -36,7 +36,7 @@ function initializeCountdowns() {
 
     // Create countdown structure
     countdownEl.innerHTML = `
-                    <div class="text-center">${title}</div>
+                    <h6 class="text-center">${title}</h6>
                     <div class="countdown-container">
                         <div class="countdown-unit day">
                             <div class="countdown-number">00</div>
