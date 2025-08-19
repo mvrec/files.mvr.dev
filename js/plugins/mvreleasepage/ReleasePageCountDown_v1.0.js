@@ -1,85 +1,132 @@
 // <div class="countdown" data-date="25-10-2024" data-time="23:00"></div>
-// Helper function
-const $ = (elem) => document.querySelector(elem);
-const $$ = (elem) => document.querySelectorAll(elem);
+// Safe DOM selection function
+function getElement(selector, parent = document) {
+  try {
+    return parent.querySelector(selector);
+  } catch (e) {
+    console.error("Invalid selector:", selector, e);
+    return null;
+  }
+}
 
-// Auto-generate countdown elements
+// Safe DOM selection for multiple elements
+function getElements(selector, parent = document) {
+  try {
+    return parent.querySelectorAll(selector);
+  } catch (e) {
+    console.error("Invalid selector:", selector, e);
+    return [];
+  }
+}
+
+// Initialize all countdowns
 function initializeCountdowns() {
-  const countdowns = $$(".countdown");
+  const countdowns = getElements(".countdown");
 
   countdowns.forEach((countdownEl) => {
-    // Create and insert the countdown structure
+    // Skip if already initialized
+    if (countdownEl.dataset.initialized) return;
+    countdownEl.dataset.initialized = "true";
+
+    // Create countdown structure
     countdownEl.innerHTML = `
-       <div class="countdown-container">
-            <div class="countdown-unit day">
-                <div class="countdown-number">00</div>
-                <div class="countdown-label">days</div>
-            /div>
-            <div class="countdown-unit hour">
-                <div class="countdown-number">00</div>
-                <div class="countdown-label">hours</div>
-            </div>
-            <div class="countdown-unit min">
-                <div class="countdown-number">00</div>
-                <div class="countdown-label">mins</div>
-            </div>
-            <div class="countdown-unit sec">
-                <div class="countdown-number">00</div>
-                <div class="countdown-label">secs</div>
-            </div>
-         </div>
+                    <div class="countdown-container">
+                        <div class="countdown-unit day">
+                            <div class="countdown-number">00</div>
+                            <div class="countdown-label">days</div>
+                        </div>
+                        <div class="countdown-unit hour">
+                            <div class="countdown-number">00</div>
+                            <div class="countdown-label">hours</div>
+                        </div>
+                        <div class="countdown-unit min">
+                            <div class="countdown-number">00</div>
+                            <div class="countdown-label">mins</div>
+                        </div>
+                        <div class="countdown-unit sec">
+                            <div class="countdown-number">00</div>
+                            <div class="countdown-label">secs</div>
+                        </div>
+                    </div>
                 `;
 
-    // Get target date/time from data attributes
-    const tarDate = countdownEl.getAttribute("data-date").split("-");
-    const day = parseInt(tarDate[0]);
-    const month = parseInt(tarDate[1]);
-    const year = parseInt(tarDate[2]);
-    let tarTime = countdownEl.getAttribute("data-time") || "00:00";
-    let [tarhour, tarmin] = tarTime.split(":").map(Number);
+    // Get target date/time
+    const dateStr = countdownEl.getAttribute("data-date") || "";
+    const timeStr = countdownEl.getAttribute("data-time") || "00:00";
 
-    // Set the target datetime
-    const countDownDate = new Date(year, month - 1, day, tarhour, tarmin, 0, 0).getTime();
+    try {
+      const [day, month, year] = dateStr.split("-").map(Number);
+      const [hours, minutes] = timeStr.split(":").map(Number);
 
-    // Check if we should show the release content immediately
-    const now = new Date().getTime();
-    if (now >= countDownDate) {
-      countdownEl.classList.add("hidden");
-      $("#release-content").classList.remove("hidden");
-      return;
+      const targetDate = new Date(year, month - 1, day, hours, minutes, 0, 0);
+
+      // Validate date
+      if (isNaN(targetDate.getTime())) {
+        throw new Error("Invalid date");
+      }
+
+      // Check if countdown should be expired
+      if (Date.now() >= targetDate) {
+        countdownEl.classList.add("hidden");
+        const releaseContent = getElement("#release-content");
+        if (releaseContent) releaseContent.classList.remove("hidden");
+        return;
+      }
+
+      // Start countdown
+      startCountdown(countdownEl, targetDate);
+    } catch (e) {
+      console.error("Error initializing countdown:", e);
+      countdownEl.innerHTML = '<div class="text-danger">Invalid date format</div>';
     }
-
-    // Start the countdown
-    updateCountdown(countdownEl, countDownDate);
   });
 }
 
-function updateCountdown(countdownEl, targetDate) {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
+function startCountdown(element, targetDate) {
+  function update() {
+    const now = new Date();
+    const diff = targetDate - now;
 
-  if (distance < 0) {
-    countdownEl.classList.add("hidden");
-    $("#release-content").classList.remove("hidden");
-    return;
+    if (diff <= 0) {
+      element.classList.add("hidden");
+      const releaseContent = getElement("#release-content");
+      if (releaseContent) releaseContent.classList.remove("hidden");
+      return;
+    }
+
+    // Calculate time units
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Update display
+    const pad = (n) => n.toString().padStart(2, "0");
+    getElement(".day .countdown-number", element).textContent = pad(days);
+    getElement(".hour .countdown-number", element).textContent = pad(hours);
+    getElement(".min .countdown-number", element).textContent = pad(mins);
+    getElement(".sec .countdown-number", element).textContent = pad(secs);
+
+    requestAnimationFrame(update);
   }
 
-  // Calculate time units
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Update display
-  countdownEl.querySelector(".day .countdown-number").textContent = addZero(days);
-  countdownEl.querySelector(".hour .countdown-number").textContent = addZero(hours);
-  countdownEl.querySelector(".min .countdown-number").textContent = addZero(minutes);
-  countdownEl.querySelector(".sec .countdown-number").textContent = addZero(seconds);
-
-  requestAnimationFrame(() => updateCountdown(countdownEl, targetDate));
+  update();
 }
 
-const addZero = (x) => (x < 10 && x >= 0 ? "0" + x : x);
+// Initialize when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeCountdowns);
+} else {
+  initializeCountdowns();
+}
 
-// Initialize all countdowns on page load
-document.addEventListener("DOMContentLoaded", initializeCountdowns);
+// jQuery version (optional)
+if (typeof jQuery !== "undefined") {
+  $(document).ready(function () {
+    $(".countdown").each(function () {
+      if (!this.dataset.initialized) {
+        initializeCountdowns();
+      }
+    });
+  });
+}
