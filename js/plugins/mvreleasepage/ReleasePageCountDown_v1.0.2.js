@@ -1,3 +1,7 @@
+/* Copyright © 2025 https://www.mixviberecords.com
+* Licensed Code With No Open Source Code
+* jQuery Code - © Mix Vibe Records */
+
 // <div class="countdown" data-date="25-10-2024" data-time="23:00"></div>
 // Safe DOM selection function
 function getElement(selector, parent = document) {
@@ -28,8 +32,11 @@ function initializeCountdowns() {
     if (countdownEl.dataset.initialized) return;
     countdownEl.dataset.initialized = "true";
 
+    const title = countdownEl.getAttribute("data-title") || "";
+
     // Create countdown structure
     countdownEl.innerHTML = `
+                    <div class="text-center">${title}</div>
                     <div class="countdown-container">
                         <div class="countdown-unit day">
                             <div class="countdown-number">00</div>
