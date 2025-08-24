@@ -220,11 +220,7 @@ span.qrcode label:after {
 }
 
 .jp-play {
-  background: -webkit-linear-gradient(left, #03cddc 0, #6666bf 50%, #fb2962 100%);
-  background: -moz-linear-gradient(left, #03cddc 0, #6666bf 50%, #fb2962 100%);
-  background: -o-linear-gradient(left, #03cddc 0, #6666bf 50%, #fb2962 100%);
-  background: -ms-linear-gradient(left, #03cddc 0, #6666bf 50%, #fb2962 100%);
-  background: linear-gradient(to right, #03cddc 0, #6666bf 50%, #fb2962 100%);
+  background: var(--main-color);
 }
 
 .jp-play:after {
@@ -233,7 +229,7 @@ span.qrcode label:after {
   width: 17px;
   height: 17px;
   content: "";
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMyAyMnYtMjBsMTggMTAtMTggMTB6Ii8+PC9zdmc+);
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwMDAwIj48cGF0aCBkPSJNMyAyMnYtMjBsMTggMTAtMTggMTB6Ii8+PC9zdmc+);
   background-size: cover;
 }
 
@@ -409,13 +405,13 @@ Artest Page
 }
 
 .track-ribbon.featured {
-  background: #09c4b3;
+  background: var(--main-color);
 }
 .track-ribbon {
   color: #000000;
   font-size: 14px;
-  font-weight: 400;
-  font-family: var(--fontNPBB);
+  font-weight: 500;
+  font-family: var(--fontCD);
   padding: 2px;
   position: absolute;
   right: -80px;
@@ -433,8 +429,6 @@ Artest Page
     right: -67px;
     top: 41px;
     font-size: 14px;
-    font-family: var(--fontNPBB);
-    font-weight: 500;
   }
 }
 
@@ -534,8 +528,8 @@ Artest Page
 
 .aBm-dTls-bx h6 {
   margin-bottom: 10px;
-  font-weight: 500;
-  font-family: var(--fontNPB);
+  font-weight: 450;
+  font-family: var(--fontCD);
   letter-spacing: 0.03em;
 }
 
@@ -1271,6 +1265,19 @@ svg.css-1vp3f8h {
   .wavePlayer_controls {
     text-align: center;
   }
+  .wave-player-info .aBm-tPe,
+  .wave-player-info .itm.aBm-aTst-box,
+  .wave-player-info .aBm-tLe {
+    display: none;
+  }
+  #wavePlayer {
+    margin-top: 13px;
+    border-top: 1px solid var(--contentBo);
+    padding-top: 10px;
+  }
+  #wavePlayer #audiowave {
+    display: none;
+  }
   .player-box {
     padding: 75px 40px 80px;
   }
@@ -1279,6 +1286,10 @@ svg.css-1vp3f8h {
   }
   .songs-details-section {
     padding: 24px 0 0;
+  }
+  .songs-details-section .aBm-dTls-bx h6 {
+    text-align: center;
+    font-size: 18px;
   }
   .similar-songs-section,
   .playlist-section {
@@ -1328,6 +1339,20 @@ svg.css-1vp3f8h {
   }
   .wave-player-info h2 {
     font-size: 20px;
+  }
+  #wavePlayer {
+    margin-top: 13px;
+    border-top: 1px solid var(--contentBo);
+    padding-top: 10px;
+  }
+  #wavePlayer #audiowave {
+    display: none;
+  }
+  .wave-player-info .itm.aBm-aTst-box {
+    display: none;
+  }
+  #clipTime {
+    display: none;
   }
   .header-section {
     padding: 0;
