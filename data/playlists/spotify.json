@@ -1,0 +1,44 @@
+{
+  "playlists": [
+    {
+      "id": "08vVS7F3nfwJN7EeqxaQrg",
+      "name": "Summer Pulse",
+      "description": "Summer Pulse delivers a vibrant Afro house experience, perfect for sunny days and energetic vibes. A strong selection with a consistent sound",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb1f466242408eccfef5fa3f7",
+      "sub-genre": "Afro house",
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "3XUZ8OYBdMWdLksHwZAu6A",
+      "name": "Techno Essentials (Melodic Techno)",
+      "description": "A strong selection of melodic techno, perfect for deep listening or setting a sophisticated mood.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da842a6caabe4cf704a39b60bab5",
+      "sub-genre": "Melodic Techno, Melodic House, Techno",
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "5t91iFRPco43y2mAgokTfN",
+      "name": "Electronic Gem",
+      "description": "A solid collection of Indian indie and Malayalam hip hop.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84c8f2fd214d0156400d753403",
+      "sub-genre": "Malayalam Hip Hop, Tamil Indie, Indian Indie",
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "5mx8OPKescPsMAce5mUkxN",
+      "name": "Southern Railway (Hip Hop/ Rap)",
+      "description": "A solid collection of Malayalam hip hop and rap, showcasing rising artists in the Mollywood scene",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845618aba5767f6b0f503617dc",
+      "sub-genre": "Malayalam Hip Hop, Malayalam Pop, Mollywood",
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "65Cjma0y51loIFa6IkNo0f",
+      "name": "Ocean Deep (R&B)",
+      "description": "A short R&B playlist showcasing Indian indie and hip-hop influences, ideal for discovering new artists in the genre",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848583911abc2887d664df3f0f",
+      "sub-genre": "Indian Indie",
+      "owner": "Mix Vibe Records"
+    }
+  ]
+}
