@@ -1,6 +1,14 @@
 {
   "playlists": [
     {
+      "id": "5PxkqRfCi0mXd7ixOq35gY",
+      "name": "Spotify Jn. Kerala",
+      "description": "A niche playlist showcasing Malayalam hip hop and hypertechno",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841d9df624bfd8649c9f7b5622",
+      "sub-genre": "Hypertechno, Malayalam Hip Hop",
+      "owner": "Basstides"
+    },
+    {
       "id": "08vVS7F3nfwJN7EeqxaQrg",
       "name": "Summer Pulse",
       "description": "Summer Pulse delivers a vibrant Afro house experience, perfect for sunny days and energetic vibes. A strong selection with a consistent sound",
@@ -17,6 +25,14 @@
       "owner": "Mix Vibe Records"
     },
     {
+      "id": "5DkwD9OjMmnbc8RYMZpAp0",
+      "name": "EDM in Kerala",
+      "description": "A vibrant collection showcasing Kerala's EDM scene, blending local influences with electronic beats. A promising and unique listening experience",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da847e893256c1a469ff05e48653",
+      "sub-genre": "Malayalam Hip Hop, Malayalam Pop, Mollywood",
+      "owner": "Joan Jose"
+    },
+    {
       "id": "5t91iFRPco43y2mAgokTfN",
       "name": "Electronic Gem",
       "description": "A solid collection of Indian indie and Malayalam hip hop.",
@@ -31,6 +47,14 @@
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845618aba5767f6b0f503617dc",
       "sub-genre": "Malayalam Hip Hop, Malayalam Pop, Mollywood",
       "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "0nOYe5kjMmyy0NRVhda7FT",
+      "name": "Six Eight Things",
+      "description": "A vibrant collection of Malayalam hip-hop and pop, featuring popular artists like Dabzee and Rish NK. Great for fans of Mollywood music",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84ea2dee979a5612214de208c3",
+      "sub-genre": "Malayalam Hip Hop, Malayalam Pop, Mollywood",
+      "owner": "Six Eight"
     },
     {
       "id": "65Cjma0y51loIFa6IkNo0f",
