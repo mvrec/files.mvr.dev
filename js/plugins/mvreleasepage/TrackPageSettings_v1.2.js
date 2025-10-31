@@ -70,7 +70,7 @@ function waveSurferControll() {
     i = $(this).data('playtrkid');
     songInfo();
     wavesurferInit(wavesurfer);
-    loadPopMenu();
+  //  loadPopMenu();
   });
 } // End Audio Player Function
 

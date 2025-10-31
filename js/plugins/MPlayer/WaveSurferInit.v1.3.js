@@ -10,7 +10,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 var wavesurfer = WaveSurfer.create({
     container: '#audiowave',
     waveColor: colorMode,
-    progressColor: '#00c5cd',
+    progressColor: '#c9f401',
     barWidth: 2,
     barGap: 1,
     cursor:false,
