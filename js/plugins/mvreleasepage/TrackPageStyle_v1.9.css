@@ -9,14 +9,10 @@
 .aBm-tPe span {
   font-family: var(--fontNPH);
   letter-spacing: 0.03em;
-  color: rgb(8 16 43);
+  color: var(--bodyC);
   font-weight: 600;
   font-size: 11px;
-  background: -webkit-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
-  background: -moz-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
-  background: -o-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
-  background: -ms-linear-gradient(left, #03cddc 0%, #6666bf 50%, #fb2962 100%);
-  background: linear-gradient(to right, #03cddc 0%, #6666bf 50%, #fb2962 100%);
+  background: var(--bg-1-alt);
   letter-spacing: 1px;
   border-radius: 4px;
   padding: 3px 8px;
