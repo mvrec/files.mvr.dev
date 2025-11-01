@@ -6435,12 +6435,8 @@ label {
   line-height: 1.75em;
 }
 .cs-iconbox.cs-style3:hover .cs-iconbox_icon {
-  color: #fff;
-  background: -webkit-linear-gradient(left, #c9f401 0%, #6666bf 50%, #fb2962 100%);
-  background: -moz-linear-gradient(left, #c9f401 0%, #6666bf 50%, #fb2962 100%);
-  background: -o-linear-gradient(left, #c9f401 0%, #6666bf 50%, #fb2962 100%);
-  background: -ms-linear-gradient(left, #c9f401 0%, #6666bf 50%, #fb2962 100%);
-  background: linear-gradient(to right, #c9f401 0%, #6666bf 50%, #fb2962 100%);
+  color: #2a2828;
+  background: #c9f401;
   border-color: #c9f401;
 }
 
