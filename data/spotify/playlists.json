@@ -1,0 +1,84 @@
+{
+  "playlists": [
+    {
+      "id": "5PxkqRfCi0mXd7ixOq35gY",
+      "name": "Spotify Jn. Kerala",
+      "description": "A niche playlist showcasing Malayalam hip hop and hypertechno.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841d9df624bfd8649c9f7b5622",
+      "subgenre": ["Hypertechno", "Malayalam Hip Hop"],
+      "owner": "Basstides"
+    },
+    {
+      "id": "08vVS7F3nfwJN7EeqxaQrg",
+      "name": "Summer Pulse",
+      "description": "Summer Pulse delivers a vibrant Afro house experience.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb1f466242408eccfef5fa3f7",
+      "subgenre": ["Afro house"],
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "3XUZ8OYBdMWdLksHwZAu6A",
+      "name": "Techno Essentials (Melodic Techno)",
+      "description": "A strong selection of melodic techno.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da842a6caabe4cf704a39b60bab5",
+      "subgenre": ["Melodic Techno", "Melodic House", "Techno"],
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "5DkwD9OjMmnbc8RYMZpAp0",
+      "name": "EDM in Kerala",
+      "description": "A vibrant collection showcasing Kerala's EDM scene.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da847e893256c1a469ff05e48653",
+      "subgenre": ["Malayalam Hip Hop", "Malayalam Pop", "Mollywood"],
+      "owner": "Joan Jose"
+    },
+    {
+      "id": "5t91iFRPco43y2mAgokTfN",
+      "name": "Electronic Gem",
+      "description": "A solid collection of Indian indie and Malayalam hip hop.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84c8f2fd214d0156400d753403",
+      "subgenre": ["Malayalam Hip Hop", "Tamil Indie", "Indian Indie"],
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "5mx8OPKescPsMAce5mUkxN",
+      "name": "Southern Railway (Hip Hop/ Rap)",
+      "description": "A solid collection of Malayalam hip hop and rap.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845618aba5767f6b0f503617dc",
+      "subgenre": ["Malayalam Hip Hop", "Malayalam Pop", "Mollywood"],
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "0nOYe5kjMmyy0NRVhda7FT",
+      "name": "Six Eight Things",
+      "description": "A vibrant collection of Malayalam hip-hop and pop.",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84ea2dee979a5612214de208c3",
+      "subgenre": ["Malayalam Hip Hop", "Malayalam Pop", "Mollywood"],
+      "owner": "Six Eight"
+    },
+    {
+      "id": "65Cjma0y51loIFa6IkNo0f",
+      "name": "Ocean Deep (R&B)",
+      "description": "A short R&B playlist showcasing Indian indie and hip-hop",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848583911abc2887d664df3f0f",
+      "subgenre": ["Indian Indie"],
+      "owner": "Mix Vibe Records"
+    },
+    {
+      "id": "0gSaC1nFrpk8Bp5lM4fHLc",
+      "name": "Dance Music India 2025",
+      "description": "A vibrant mix of hypertechno, big room, and Indian influences.",
+      "image": "https://mosaic.scdn.co/640/ab67616d00001e020ebe86c4f9eafc38cfb70024ab67616d00001e0213cd88a9ce921d2fb44b2fb7ab67616d00001e02409b57b085762bdc0e20456aab67616d00001e025cc2a4a729d0057cb169c382",
+      "subgenre": ["Hypertechno", "Malayalam hip hop", "Big Room"],
+      "owner": "Basstides"
+    },
+    {
+      "id": "1aHmi6i9UTvoKwnUvtbTkN",
+      "name": "Indian Groove 2025",
+      "description": "A vibrant mix of future, tech. perfect for those seeking an Indian-inspired groove",
+      "image": "https://mosaic.scdn.co/640/ab67616d00001e02354fced9c89b1874d3d066d6ab67616d00001e025b4bb45b49410a25579863eeab67616d00001e02b492526bde302a0258ccd18aab67616d00001e02e1acba3f67dc8403920c5804",
+      "subgenre": ["Future house", "Tech house"],
+      "owner": "Basstides"
+    }
+  ]
+}
