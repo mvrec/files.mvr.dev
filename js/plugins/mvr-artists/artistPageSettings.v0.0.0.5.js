@@ -11,15 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   // ===== UTILITY FUNCTIONS =====
-  const $ = (selector, context = document) => context ? context.querySelector(selector) : null;
-  const $$ = (selector, context = document) => context ? Array.from(context.querySelectorAll(selector)) : [];
-
-  // ===== SAFE HELPERS =====
-  $.exists = (selector, context = document) => !!$(selector, context);
-
-  Element.prototype.hasClass = function(className) {
-    return this && this.classList ? this.classList.contains(className) : false;
-  };
+  const $ = (selector, context = document) => (context ? context.querySelector(selector) : null);
+  const $$ = (selector, context = document) => (context ? Array.from(context.querySelectorAll(selector)) : []);
 
   // Fade in/out helper
   function fadeToggle(element, show = true, duration = 300) {
@@ -47,18 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetTab = $(`#content-${tabId}`, tabContentsContainer);
     const targetButton = $(`#tab-${tabId}`, tabButtonsContainer);
 
-    // Remove active class from all buttons
+    if (!targetTab || !targetButton) return;
+
     allButtons.forEach((btn) => btn.classList.remove("active"));
     targetButton.classList.add("active");
-
-    // Fade out all tabs
     allTabs.forEach((tab) => fadeToggle(tab, false));
-
-    // Fade in target tab after fade out
     setTimeout(() => fadeToggle(targetTab, true), 300);
   }
 
-  // Attach click listeners to tab buttons
   $$(".tab-button", tabButtonsContainer).forEach((btn) => {
     btn.addEventListener("click", () => {
       const tabId = btn.id.replace("tab-", "");
@@ -66,31 +55,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Show default tab on page load
   showTab("releases");
 
   // ===== PROFILE BACKGROUND IMAGE =====
-  function profileBackground() {
-    const pfImg = $(".profile-img");
-    const target = $(".header-bg");
-    if (pfImg && target) {
-      const imgSrc = pfImg.src;
-      target.style.background = `url('${imgSrc}')`;
-    }
+  const pfImg = $(".profile-img");
+  const target = $(".header-bg");
+  if (pfImg && target) {
+    target.style.background = `url('${pfImg.src}')`;
   }
-  profileBackground();
 
   // ===== NON-CLAIMED PROFILE HANDLER =====
   function handleNonClaimed() {
     const avatar = $(".artist__avatar");
-    if (!avatar.hasClass("artist__avatar--verified")) {
+    if (avatar && !avatar.classList.contains("artist__avatar--verified")) {
       const promo = $("#NonClaimPromo");
       if (promo) promo.style.display = "block";
-      $(".artist__nickname").textContent = "NOT CLAIMED";
+
+      const nickname = $(".artist__nickname");
+      if (nickname) nickname.textContent = "NOT CLAIMED";
+
       [".artist__social", ".artist__code", ".artist__sinfo", ".artist__link"].forEach((sel) => {
         $$(sel).forEach((el) => el.remove());
       });
-      $(".artist_main__artist").style.backgroundImage = "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx8.webp)";
+
+      const mainArtist = $(".artist_main__artist");
+      if (mainArtist) mainArtist.style.backgroundImage = "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx8.webp)";
     }
   }
   handleNonClaimed();
@@ -100,10 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const playlistSpan = $("span[data-yt-playlist]");
     if (!playlistSpan) return;
 
-    const playlistIds = playlistSpan
-      .getAttribute("data-yt-playlist")
-      .split(",")
-      .map((id) => id.trim());
+    const playlistIds = playlistSpan.getAttribute("data-yt-playlist").split(",").map((id) => id.trim());
     if (!playlistIds.length) return;
 
     const tabVideos = document.createElement("div");
@@ -120,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     tabContentsContainer.appendChild(tabVideos);
 
-    // Add tab button
     const btn = document.createElement("button");
     btn.id = "tab-videos";
     btn.className = "tab-button font-NPM pb-2 focus:outline-none";
@@ -133,10 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkThumbnail = (videoId) =>
       new Promise((resolve) => {
         const img = new Image();
-        img.onload = () =>
-          resolve(
-            img.width <= 120 ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-          );
+        img.onload = () => resolve(img.width <= 120 ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
         img.onerror = () => resolve(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
         img.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
         setTimeout(() => resolve(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`), 2000);
@@ -144,9 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (const playlistId of playlistIds) {
       try {
-        const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-          `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
-        )}`;
+        const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`)}`;
         const response = await fetch(feedURL);
         const data = await response.json();
         if (!data.items || !data.feed) continue;
@@ -160,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 playlist-videos"></div>
         `;
         container.appendChild(section);
+
         const videoRow = $(".playlist-videos", section);
 
         for (const item of data.items) {
@@ -191,18 +172,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
   youTubePlaylistVideosTab();
 
-  // Function to display a brief toast notification
+  // ===== TOAST NOTIFICATION =====
   let toastTimeout;
   function showToast(message) {
     const toastContainer = document.getElementById("toast-container");
     const toastText = document.getElementById("toast-text");
+    if (!toastContainer || !toastText) return;
 
-    if (toastTimeout) {
-      clearTimeout(toastTimeout);
-    }
+    if (toastTimeout) clearTimeout(toastTimeout);
 
     toastText.textContent = message;
     toastContainer.classList.remove("opacity-0", "translate-y-full");
@@ -214,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 
-  // Function to copy text from an element and show a toast
   function copyLink(elementId, type = "Link") {
     const element = document.getElementById(elementId);
     if (!element) return;
@@ -227,44 +205,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const successful = document.execCommand("copy");
-      if (successful) {
-        showToast(`${type} copied!`);
-      } else {
-        console.error("Copy command failed.");
-        showToast("Copy failed. Please try manually.");
-      }
-    } catch (err) {
-      console.error("Error during copy operation:", err);
+      showToast(successful ? `${type} copied!` : "Copy failed. Please try manually.");
+    } catch {
       showToast("Copy failed. Please try manually.");
     }
 
     document.body.removeChild(tempInput);
   }
 
-  // === MODAL LOGIC ===
+  // ===== MODAL LOGIC =====
   const modal = document.getElementById("artist-pick-modal");
 
   function openArtistPickModal() {
+    if (!modal) return;
     modal.classList.remove("modal-hidden");
     modal.classList.add("modal-visible");
     document.addEventListener("keydown", handleEscKey);
   }
 
   function closeArtistPickModal(event) {
-    if (event && event.target !== modal) return;
+    if (!modal || (event && event.target !== modal)) return;
     modal.classList.remove("modal-visible");
     modal.classList.add("modal-hidden");
     document.removeEventListener("keydown", handleEscKey);
   }
 
   function handleProfileClick(element) {
-    if (element.hasClass("artist-pick")) {
-      openArtistPickModal();
-    }
+    if (element && element.classList.contains("artist-pick")) openArtistPickModal();
   }
 
   function handleEscKey(event) {
-    if (event.key === "Escape" && modal.hasClass("modal-visible")) {
+    if (event.key === "Escape" && modal && modal.classList.contains("modal-visible")) {
       closeArtistPickModal();
     }
   }
