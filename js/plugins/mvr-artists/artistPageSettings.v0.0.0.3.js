@@ -14,10 +14,13 @@
     return $(selector).length > 0;
   };
 
+  $(window).on("load", function () {
+    showTab("releases");
+  });
+
   $(function () {
     profileBackground();
     nonClaimed();
-    showTab("releases");
     pinnedStatus();
     copyInputs();
     youTubePlaylistVideosTab();
