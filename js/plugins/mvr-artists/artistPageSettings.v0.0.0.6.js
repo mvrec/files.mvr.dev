@@ -1,7 +1,7 @@
 /* 
-| © Copyright 2024 https://www.mixviberecords.com
+| © Copyright 2025 https://artists.mixviberecords.com
 | Author: Mix Vibe Records
-| Version: 1.1.0
+| Version: 0.1.0
 | Licensed Code With No Open Source Code
 | Modern JS Upgrade
 | MVR Developers
@@ -89,7 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const playlistSpan = $("span[data-yt-playlist]");
     if (!playlistSpan) return;
 
-    const playlistIds = playlistSpan.getAttribute("data-yt-playlist").split(",").map((id) => id.trim());
+    const playlistIds = playlistSpan
+      .getAttribute("data-yt-playlist")
+      .split(",")
+      .map((id) => id.trim());
     if (!playlistIds.length) return;
 
     const tabVideos = document.createElement("div");
@@ -118,7 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkThumbnail = (videoId) =>
       new Promise((resolve) => {
         const img = new Image();
-        img.onload = () => resolve(img.width <= 120 ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
+        img.onload = () =>
+          resolve(
+            img.width <= 120 ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+          );
         img.onerror = () => resolve(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
         img.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
         setTimeout(() => resolve(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`), 2000);
@@ -126,7 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (const playlistId of playlistIds) {
       try {
-        const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`)}`;
+        const feedURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+          `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
+        )}`;
         const response = await fetch(feedURL);
         const data = await response.json();
         if (!data.items || !data.feed) continue;
@@ -174,69 +182,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   youTubePlaylistVideosTab();
 
-  // ===== TOAST NOTIFICATION =====
-  let toastTimeout;
-  function showToast(message) {
-    const toastContainer = document.getElementById("toast-container");
-    const toastText = document.getElementById("toast-text");
-    if (!toastContainer || !toastText) return;
-
-    if (toastTimeout) clearTimeout(toastTimeout);
-
-    toastText.textContent = message;
-    toastContainer.classList.remove("opacity-0", "translate-y-full");
-    toastContainer.classList.add("translate-y-0");
-
-    toastTimeout = setTimeout(() => {
-      toastContainer.classList.remove("translate-y-0");
-      toastContainer.classList.add("opacity-0", "translate-y-full");
-    }, 3000);
-  }
-
-  function copyLink(elementId, type = "Link") {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-
-    const textToCopy = element.textContent.trim();
-    const tempInput = document.createElement("textarea");
-    tempInput.value = textToCopy;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-
-    try {
-      const successful = document.execCommand("copy");
-      showToast(successful ? `${type} copied!` : "Copy failed. Please try manually.");
-    } catch {
-      showToast("Copy failed. Please try manually.");
-    }
-
-    document.body.removeChild(tempInput);
-  }
-
-  // ===== MODAL LOGIC =====
-  const modal = document.getElementById("artist-pick-modal");
-
-  function openArtistPickModal() {
-    if (!modal) return;
-    modal.classList.remove("modal-hidden");
-    modal.classList.add("modal-visible");
-    document.addEventListener("keydown", handleEscKey);
-  }
-
-  function closeArtistPickModal(event) {
-    if (!modal || (event && event.target !== modal)) return;
-    modal.classList.remove("modal-visible");
-    modal.classList.add("modal-hidden");
-    document.removeEventListener("keydown", handleEscKey);
-  }
-
-  function handleProfileClick(element) {
-    if (element && element.classList.contains("artist-pick")) openArtistPickModal();
-  }
-
-  function handleEscKey(event) {
-    if (event.key === "Escape" && modal && modal.classList.contains("modal-visible")) {
-      closeArtistPickModal();
-    }
-  }
 });
