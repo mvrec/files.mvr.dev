@@ -11,11 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   // ===== UTILITY FUNCTIONS =====
-  const $ = (selector, context = document) => context.querySelector(selector);
-  const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
+  const $ = (selector, context = document) => context ? context.querySelector(selector) : null;
+  const $$ = (selector, context = document) => context ? Array.from(context.querySelectorAll(selector)) : [];
+
+  // ===== SAFE HELPERS =====
+  $.exists = (selector, context = document) => !!$(selector, context);
+
+  Element.prototype.hasClass = function(className) {
+    return this && this.classList ? this.classList.contains(className) : false;
+  };
 
   // Fade in/out helper
   function fadeToggle(element, show = true, duration = 300) {
+    if (!element) return;
     if (show) {
       element.classList.remove("hidden");
       element.style.opacity = 0;
@@ -75,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== NON-CLAIMED PROFILE HANDLER =====
   function handleNonClaimed() {
     const avatar = $(".artist__avatar");
-    if (!avatar.classList.contains("artist__avatar--verified")) {
+    if (!avatar.hasClass("artist__avatar--verified")) {
       const promo = $("#NonClaimPromo");
       if (promo) promo.style.display = "block";
       $(".artist__nickname").textContent = "NOT CLAIMED";
@@ -192,17 +200,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const toastContainer = document.getElementById("toast-container");
     const toastText = document.getElementById("toast-text");
 
-    // Clear any existing timeout
     if (toastTimeout) {
       clearTimeout(toastTimeout);
     }
 
-    // Set the message and show the toast
     toastText.textContent = message;
     toastContainer.classList.remove("opacity-0", "translate-y-full");
     toastContainer.classList.add("translate-y-0");
 
-    // Hide the toast after 3 seconds
     toastTimeout = setTimeout(() => {
       toastContainer.classList.remove("translate-y-0");
       toastContainer.classList.add("opacity-0", "translate-y-full");
@@ -214,17 +219,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const element = document.getElementById(elementId);
     if (!element) return;
 
-    // Use a temporary textarea to hold the text for copying
     const textToCopy = element.textContent.trim();
     const tempInput = document.createElement("textarea");
     tempInput.value = textToCopy;
     document.body.appendChild(tempInput);
-
-    // Select and copy the text
     tempInput.select();
 
     try {
-      // document.execCommand('copy') is used for compatibility in iframes
       const successful = document.execCommand("copy");
       if (successful) {
         showToast(`${type} copied!`);
@@ -237,43 +238,33 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast("Copy failed. Please try manually.");
     }
 
-    // Clean up the temporary element
     document.body.removeChild(tempInput);
   }
 
   // === MODAL LOGIC ===
   const modal = document.getElementById("artist-pick-modal");
 
-  //Opens the Artist Pick modal.
   function openArtistPickModal() {
     modal.classList.remove("modal-hidden");
     modal.classList.add("modal-visible");
-    // Add event listener for ESC key press
     document.addEventListener("keydown", handleEscKey);
   }
 
-  // Closes the Artist Pick modal.
   function closeArtistPickModal(event) {
-    // If event is defined, check if the click target is the modal backdrop itself
-    if (event && event.target !== modal) {
-      return;
-    }
+    if (event && event.target !== modal) return;
     modal.classList.remove("modal-visible");
     modal.classList.add("modal-hidden");
-    // Remove event listener for ESC key press
     document.removeEventListener("keydown", handleEscKey);
   }
 
-  // Handles the click on the profile picture image.
   function handleProfileClick(element) {
-    if (element.classList.contains("artist-pick")) {
+    if (element.hasClass("artist-pick")) {
       openArtistPickModal();
     }
   }
 
-  // Handles the ESC key press to close the modal.
   function handleEscKey(event) {
-    if (event.key === "Escape" && modal.classList.contains("modal-visible")) {
+    if (event.key === "Escape" && modal.hasClass("modal-visible")) {
       closeArtistPickModal();
     }
   }
