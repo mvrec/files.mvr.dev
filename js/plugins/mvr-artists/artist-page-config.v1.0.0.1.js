@@ -57,6 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showTab("releases");
 
+  // ===== Verified Toggle =====
+  const vToggle = $("#v-toggle");
+  if (vToggle) {
+    vToggle.addEventListener("click", () => {
+      showToast("Verified By Mix Vibe Records");
+    });
+  }
+
   // ===== PROFILE BACKGROUND IMAGE =====
   const pfImg = $(".profile-img");
   const target = $(".header-bg");
@@ -181,5 +189,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   youTubePlaylistVideosTab();
-
 });
