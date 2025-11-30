@@ -1,7 +1,7 @@
 /* 
 | © Copyright 2025 https://artists.mixviberecords.com
 | Author: Mix Vibe Records
-| Version: 0.1.0
+| Version: 1.0.0.0
 | Licensed Code With No Open Source Code
 | Modern JS Upgrade
 | MVR Developers
