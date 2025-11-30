@@ -190,6 +190,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   youTubePlaylistVideosTab();
 
+  // ===== PICK Spotify =====
+  const $targetSpan = $("span[data-pin-track], span[data-pin-album]");
+  if ($targetSpan.length > 0) {
+    let pinId = $targetSpan.attr("data-pin-track");
+    let embedType = "track";
+    if (!pinId) {
+      pinId = $targetSpan.attr("data-pin-album");
+      embedType = "album";
+    }
+    if (pinId) {
+      $(".profile-img").addClass("artist-pick");
+      $("#data-pin").attr({
+        src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
+      });
+    }
+  }
+
   // ===== PICK MODAL =====
   const modal = $("#artist-pick-modal");
   const closeBtn = $("#artist-pick-close");
@@ -230,12 +247,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (closeBtn) {
     closeBtn.addEventListener("click", closeArtistPickModal);
   }
-  
+
   // PICK When profile is clicked
   const aPk = $(".artist-pick");
   if (aPk) {
     aPk.addEventListener("click", () => {
-       openArtistPickModal();
+      openArtistPickModal();
     });
   }
 });
