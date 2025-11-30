@@ -194,19 +194,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== PICK Spotify =====
   function pinnedStatus() {
-    const $targetSpan = $("span[data-pin-track], span[data-pin-album]");
-    if ($targetSpan.length > 0) {
-      let pinId = $targetSpan.attr("data-pin-track");
+    const targetSpan = $("span[data-pin-track], span[data-pin-album]");
+    const pImage = $(".profile-img");
+    const sptyIframe = $("#data-pin");
+
+    if (targetSpan) {
+      let pinId = targetSpan.getAttribute("data-pin-track");
       let embedType = "track";
       if (!pinId) {
-        pinId = $targetSpan.attr("data-pin-album");
+        pinId = targetSpan.getAttribute("data-pin-album");
         embedType = "album";
       }
       if (pinId) {
-        $(".profile-img").classList.add("artist-pick");
-        $("#data-pin").attr({
-          src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
-        });
+        if (pImage) pImage.classList.add("artist-pick");
+        if (sptyIframe) {
+          sptyIframe.src = `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`;
+        }
       }
     }
   }
