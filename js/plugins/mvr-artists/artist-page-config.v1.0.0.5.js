@@ -73,24 +73,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===== NON-CLAIMED PROFILE HANDLER =====
-  function handleNonClaimed() {
-    const avatar = $(".artist__avatar");
-    if (avatar && !avatar.classList.contains("artist__avatar--verified")) {
+  function checkClaimed() {
+    const pBody = $("#postBody");
+    const vTogle = $("#v-toggle");
+    const nickname = $(".artist__nickname");
+    const headCover = $(".header-bg");
+    if (pBody && !pBody.classList.contains("verified-profile")) {
       const promo = $("#NonClaimPromo");
       if (promo) promo.style.display = "block";
-
-      const nickname = $(".artist__nickname");
       if (nickname) nickname.textContent = "NOT CLAIMED";
 
       [".artist__social", ".artist__code", ".artist__sinfo", ".artist__link"].forEach((sel) => {
         $$(sel).forEach((el) => el.remove());
       });
 
-      const mainArtist = $(".artist_main__artist");
-      if (mainArtist) mainArtist.style.backgroundImage = "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx8.webp)";
+      if (headCover) headCover.style.background = "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx8.webp)";
+    } else {
+      if (vTogle) vTogle.classList.remove("hidden");
     }
   }
-  handleNonClaimed();
+  checkClaimed();
 
   // ===== YOUTUBE PLAYLIST TAB =====
   async function youTubePlaylistVideosTab() {
@@ -201,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         embedType = "album";
       }
       if (pinId) {
-        $(".profile-img").addClass("artist-pick");
+        $(".profile-img").classList.add("artist-pick");
         $("#data-pin").attr({
           src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
         });
