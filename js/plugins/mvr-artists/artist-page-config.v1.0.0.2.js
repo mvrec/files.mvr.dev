@@ -189,4 +189,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   youTubePlaylistVideosTab();
+
+  // ===== PICK MODAL =====
+  const modal = $("#artist-pick-modal");
+  const closeBtn = $("#artist-pick-close");
+
+  // PICK OPEN MODAL
+  function openArtistPickModal() {
+    if (modal) {
+      modal.classList.remove("modal-hidden");
+      modal.classList.add("modal-visible");
+      document.addEventListener("keydown", handleEscKey);
+    }
+  }
+
+  // PICK CLOSE MODAL
+  function closeArtistPickModal() {
+    if (modal) {
+      modal.classList.remove("modal-visible");
+      modal.classList.add("modal-hidden");
+      document.removeEventListener("keydown", handleEscKey);
+    }
+  }
+
+  // PICK Close on ESC key
+  function handleEscKey(event) {
+    if (event.key === "Escape") {
+      closeArtistPickModal();
+    }
+  }
+
+  // PICK Close on click outside modal content
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeArtistPickModal();
+    }
+  });
+
+  // PICK Close button
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeArtistPickModal);
+  }
+  
+  // PICK When profile is clicked
+  const aPk = $(".artist-pick");
+  if (aPk) {
+    aPk.addEventListener("click", () => {
+       openArtistPickModal();
+    });
+  }
 });
