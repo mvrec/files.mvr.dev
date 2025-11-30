@@ -191,21 +191,24 @@ document.addEventListener("DOMContentLoaded", () => {
   youTubePlaylistVideosTab();
 
   // ===== PICK Spotify =====
-  const $targetSpan = $("span[data-pin-track], span[data-pin-album]");
-  if ($targetSpan.length > 0) {
-    let pinId = $targetSpan.attr("data-pin-track");
-    let embedType = "track";
-    if (!pinId) {
-      pinId = $targetSpan.attr("data-pin-album");
-      embedType = "album";
-    }
-    if (pinId) {
-      $(".profile-img").addClass("artist-pick");
-      $("#data-pin").attr({
-        src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
-      });
+  function pinnedStatus() {
+    const $targetSpan = $("span[data-pin-track], span[data-pin-album]");
+    if ($targetSpan.length > 0) {
+      let pinId = $targetSpan.attr("data-pin-track");
+      let embedType = "track";
+      if (!pinId) {
+        pinId = $targetSpan.attr("data-pin-album");
+        embedType = "album";
+      }
+      if (pinId) {
+        $(".profile-img").addClass("artist-pick");
+        $("#data-pin").attr({
+          src: `https://open.spotify.com/embed/${embedType}/${pinId}?theme=0`,
+        });
+      }
     }
   }
+  pinnedStatus();
 
   // ===== PICK MODAL =====
   const modal = $("#artist-pick-modal");
