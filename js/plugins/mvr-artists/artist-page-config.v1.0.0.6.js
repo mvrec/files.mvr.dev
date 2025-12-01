@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const vTogle = $("#v-toggle");
     const nickname = $(".artist__nickname");
     const headCover = $(".header-bg");
+    const profileEle = $("#profile-dp");
     if (pBody && !pBody.classList.contains("verified-profile")) {
       const promo = $("#NonClaimPromo");
       if (promo) promo.style.display = "block";
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (headCover) headCover.style.background = "url(https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/bgimgs/mixbgmx8.webp)";
     } else {
       if (vTogle) vTogle.classList.remove("hidden");
+      if (profileEle) profileEle.insertAdjacentHTML("beforeend",`<div class="verified absolute bottom-2 right-2 p-1 rounded-full shadow-lg"><img alt="Verified Badge" class="w-7 h-7" src="https://cdn.jsdelivr.net/gh/mvrec/files.mvr.dev@master/img/svg/vfyd.svg"></div>`);
     }
   }
   checkClaimed();
