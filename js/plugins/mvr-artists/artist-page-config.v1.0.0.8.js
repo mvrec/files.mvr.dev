@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  showTab("releases");
+  showTab("bio");
 
   // ===== Verified Toggle =====
   const vToggle = $("#v-toggle");
